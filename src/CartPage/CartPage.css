@@ -1,0 +1,16 @@
+.CartPage-div{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto auto;
+    background-color: rgba(0, 255, 255, 0.693);
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}

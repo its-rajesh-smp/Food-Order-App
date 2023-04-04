@@ -28,6 +28,7 @@ function ProductDetails(props){
             <div className="productName">
                 <i className='bx bx-checkbox-square'></i>
                 <p>Fish Curry</p>
+                <button>ADD ITEM</button>
             </div>
 
             <p className='productDetails-price'>₹<span>295</span></p>
