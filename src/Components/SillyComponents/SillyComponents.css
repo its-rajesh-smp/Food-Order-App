@@ -1,0 +1,8 @@
+.DefaultFavourites-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.DefaultFavourites-div p {
+  font-size: 14px;
+}/*# sourceMappingURL=SillyComponents.css.map */

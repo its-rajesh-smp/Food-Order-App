@@ -1,0 +1,78 @@
+.ProductPhoto-div {
+  display: flex;
+  flex-direction: column;
+  height: 110px;
+  width: 110px;
+  font-family: poppins;
+  margin-top: 5px;
+}
+.ProductPhoto-div .ProductPhoto-div-img {
+  border-radius: 10px;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ProductPhoto-div .ProductPhoto-div-img img {
+  border-radius: 10px;
+  height: 110px;
+  width: 110px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ProductPhoto-div .ProductPhoto-div-button {
+  display: flex;
+  background-color: #e66158;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 5px;
+}
+.ProductPhoto-div .ProductPhoto-div-button button {
+  background-color: #e66158;
+  border: none;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+.ProductPhoto-div .ProductPhoto-div-button p {
+  color: white;
+}
+
+.ProductDetails-div {
+  font-family: poppins;
+}
+.ProductDetails-div .productName {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 0px;
+  font-weight: 600;
+}
+.ProductDetails-div .productName i {
+  color: green;
+}
+.ProductDetails-div .productDetails-price {
+  font-size: 16px;
+}
+.ProductDetails-div .desc {
+  font-size: 12px;
+}
+.ProductDetails-div .likeShare {
+  margin-top: 10px;
+  margin-left: 5px;
+  display: flex;
+}
+.ProductDetails-div .likeShare button {
+  display: flex;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  padding: 8px;
+  border-radius: 50px;
+  color: #e66158;
+  background-color: white;
+  box-shadow: 2px 2px 5px 0.5px rgba(0, 0, 0, 0.395);
+}/*# sourceMappingURL=SillyProductComponent.css.map */
