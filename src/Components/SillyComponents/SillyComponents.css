@@ -5,4 +5,78 @@
 }
 .DefaultFavourites-div p {
   font-size: 14px;
+}
+
+.CartOffersAndCoupons-div {
+  font-family: poppins;
+  padding: 20px 0px;
+  border-bottom: 1px solid #939393;
+}
+.CartOffersAndCoupons-div .CartOffersAndCoupons-div-head {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+  color: gray;
+}
+.CartOffersAndCoupons-div .CartOffersAndCoupons-div-head i {
+  font-size: 25px;
+  color: #f3681f;
+}
+.CartOffersAndCoupons-div .CartOffersAndCoupons-div-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.CartOffersAndCoupons-div .CartOffersAndCoupons-div-foot p {
+  margin-left: 20px;
+  font-size: 12px;
+}
+.CartOffersAndCoupons-div .CartOffersAndCoupons-div-foot i {
+  font-size: 20px;
+  color: #f3681f;
+}
+
+.BillDetails-div {
+  font-family: poppins;
+  padding: 20px 0px;
+  border-bottom: 1px solid #939393;
+}
+.BillDetails-div h3 {
+  padding-bottom: 10px;
+  color: gray;
+}
+.BillDetails-div div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+.BillDetails-div div span {
+  font-weight: 600;
+}
+.BillDetails-div .total {
+  font-weight: 600;
+}
+.BillDetails-div .total .totalAmount {
+  font-size: 22px;
+}
+
+.SillyHeader-div {
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 15px;
+  height: 60px;
+}
+.SillyHeader-div div {
+  display: flex;
+  align-items: center;
+}
+.SillyHeader-div .bx-x, .SillyHeader-div .bx-cart-alt {
+  font-size: 40px;
+  cursor: pointer;
 }/*# sourceMappingURL=SillyComponents.css.map */
