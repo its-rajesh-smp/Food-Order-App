@@ -1,6 +1,6 @@
 import React from 'react';
 import "./App.css"
-import CartPage from '../CartPage/CartPage';
+
 import ProductPage from '../ProductPage/ProductPage';
 
 
@@ -12,7 +12,7 @@ function  App (props) {
 
             <ProductPage/>
 
-            {/* <CartPage/> */}
+
 
 
 
