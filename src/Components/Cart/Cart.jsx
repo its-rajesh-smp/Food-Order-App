@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./Cart.css"
+import CartOpenClose_Context from '../../Context/CartOpenClose/CartOpenCloseContext';
 
-function  Cart (props) {
-    return ( 
+function Cart(props) {
+
+    const cartOpenCloseCTX = useContext(CartOpenClose_Context)
+
+
+    return (
         <div className='Cart-div container  '>
-            <button className='Cart-div-button'>
+            <button className='Cart-div-button' onClick={() => { cartOpenCloseCTX.openCart_FUNC(true) }}>
                 <div className='Cart-div-button-CartPrice'>
                     <p><span>10</span> Item</p>
                     <p> <span className='moneyType'>₹</span><span className='price'>290</span> <span className='taxes'>+taxes</span></p>
@@ -16,7 +21,7 @@ function  Cart (props) {
                 </div>
             </button>
         </div>
-     );
+    );
 }
 
 export default Cart;

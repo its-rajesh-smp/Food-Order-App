@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 import "./index.css"
 import App from "./App/App"
 
+import CartOpenClose_Provider from './Context/CartOpenClose/CartOpenCloseProvider';
+
 ReactDOM.render(
-    <App/>,
+    <CartOpenClose_Provider>
+        <App />
+    </CartOpenClose_Provider>,
     document.querySelector("#root")
 )

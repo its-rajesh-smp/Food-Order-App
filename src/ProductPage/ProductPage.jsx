@@ -9,22 +9,22 @@ import VegNonVegFilter from '../Components/VegNonVegFilter/VegNonVegFilter';
 import YourFavourites from '../Components/YourFavourites/YourFavourites';
 import HeroContainer from '../Components/HeroContainer/HeroContainer';
 
-function  ProductPage (props) {
-    return ( 
+function ProductPage(props) {
+    return (
         <div className=' ProductPage-div '>
-            
-            <Header/>
-            <SelectedCurrentLocation/>
-            <OffersForYou/>
-            <Search/>
-            <VegNonVegFilter/>
-            <YourFavourites/>
-            <HeroContainer/>
-            <Cart/>
+
+            <Header />
+            <SelectedCurrentLocation />
+            <OffersForYou />
+            <Search />
+            <VegNonVegFilter />
+            <YourFavourites />
+            <HeroContainer />
+            <Cart />
 
 
         </div>
-     );
+    );
 }
 
 export default ProductPage;
