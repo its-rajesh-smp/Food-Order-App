@@ -31,10 +31,10 @@ function ProductPhoto(props) {
 
     // Pass the object to viewCartDataContext
     context.setCartData(cartData);
-    
+
     // Update The Floating Cart Total Quantity & Total Price
-    context.setCartTotals((prev)=>{
-      return {totalPrice: prev.totalPrice + props.details.price, totalQuantity:prev.totalQuantity + 1 }
+    context.setCartTotals((prev) => {
+      return { totalPrice: prev.totalPrice + props.details.price, totalQuantity: prev.totalQuantity + 1 }
     });
 
 
@@ -57,7 +57,7 @@ function ProductPhoto(props) {
       // Create Object To Pass for --> Konsa Item Kitna Quantity
       const cartData = {
         name: props.details.name,
-        price: props.details.price+props.details.price,
+        price: props.details.price + props.details.price,
         quantity:
           props.details.quantity == undefined
             ? (props.details.quantity = 1)
@@ -68,8 +68,8 @@ function ProductPhoto(props) {
       context.setCartData(cartData);
 
       // Update The Floating Cart Total Quantity & Total Price
-      context.setCartTotals((prev)=>{
-        return {totalPrice: prev.totalPrice - props.details.price, totalQuantity:prev.totalQuantity - 1 }
+      context.setCartTotals((prev) => {
+        return { totalPrice: prev.totalPrice - props.details.price, totalQuantity: prev.totalQuantity - 1 }
       });
 
     }
