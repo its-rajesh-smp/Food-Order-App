@@ -57,12 +57,14 @@ function ProductPhoto(props) {
       // Create Object To Pass for --> Konsa Item Kitna Quantity
       const cartData = {
         name: props.details.name,
-        price: props.details.price + props.details.price,
+        price: props.details.price,
         quantity:
           props.details.quantity == undefined
             ? (props.details.quantity = 1)
             : (props.details.quantity -= 1),
       };
+
+
 
       // Pass the object to viewCartDataContext
       context.setCartData(cartData);
