@@ -4,11 +4,18 @@ import { ProductDetails, ProductPhoto } from './SillyProductComponent/SillyProdu
 
 
 function  Product (props) {
+
+ 
+
+
+
     return ( 
+
         <div className=' Product-div '>
-            <ProductDetails/>
-            <ProductPhoto/>
+            <ProductDetails details={props.details}/>
+            <ProductPhoto  details={props.details} />
         </div>
+
      );
 }
 

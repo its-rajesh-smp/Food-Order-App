@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./SillyComponents.css"
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import CartOpenClose_CONTEXT from '../../Context/CartOpenClose/CartOpenCloseContext';
 
 function FlipFlopSwitch(props) {
     return (
@@ -87,6 +88,15 @@ function BillDetails() {
 // ===========================================
 
 function SillyHeader(){
+
+    // Context To Close Cart
+    const context_OpenCloseCart=useContext(CartOpenClose_CONTEXT)
+    // Function Run when cart close button is clicked
+    const CloseCartHandeler_Function=()=>{
+        context_OpenCloseCart.openCart_FUNC(false)
+    }
+
+    
     return ( 
         <div className='SillyHeader-div '>
             <div className='header'>
@@ -95,7 +105,7 @@ function SillyHeader(){
             </div>
 
             <div>
-                <i className='bx bx-x'></i>
+                <i onClick={CloseCartHandeler_Function} className='bx bx-x'></i>
             </div>
         </div>
      );

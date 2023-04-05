@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./App.css"
 import CartPage from '../CartPage/CartPage';
 import ProductPage from '../ProductPage/ProductPage';
-
+import CartOpenClose_CONTEXT from '../Context/CartOpenClose/CartOpenCloseContext';
 
 
 function  App (props) {
+    
+    // Context To OpenClose Cart
+    const context_OpenCloseCart=useContext(CartOpenClose_CONTEXT)
+
+
     return ( 
+
+
         <div className=' App-div container '>
 
 
-            <ProductPage/>
-            {/* <CartPage/> */}
+            {!context_OpenCloseCart.openCart_BOOL && <ProductPage/>}
+            {context_OpenCloseCart.openCart_BOOL && <CartPage/>}
 
 
 

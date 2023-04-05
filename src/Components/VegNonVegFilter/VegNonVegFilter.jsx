@@ -5,7 +5,7 @@ import { FlipFlopSwitch } from '../SillyComponents/SillyComponents';
 
 function VegNonVegFilter(props) {
     return (
-        <div class="flipswitch">
+        <div className="flipswitch">
             <FlipFlopSwitch/>
         </div>
 

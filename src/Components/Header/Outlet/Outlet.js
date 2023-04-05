@@ -9,7 +9,7 @@ function Outlet(props) {
                 <span>Outlet </span>
             </p>
 
-            <p ><span>Kolkata</span><i class='bx bx-chevron-down'></i> </p>
+            <p ><span>Kolkata</span><i className='bx bx-chevron-down'></i> </p>
         </div>
 
     );
