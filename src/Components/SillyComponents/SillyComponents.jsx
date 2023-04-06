@@ -3,6 +3,7 @@ import "./SillyComponents.css"
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import CartOpenClose_CONTEXT from '../../Context/CartOpenClose/CartOpenCloseContext';
+import CartPageData_Context from '../../Context/CartPageData/CartPageDataContext';
 
 function FlipFlopSwitch(props) {
     return (
@@ -56,28 +57,31 @@ function CartOffersAndCoupons() {
 
 
 function BillDetails() {
+    const totalCTX = useContext(CartPageData_Context)
     return (
+
+
         <div className='BillDetails-div'>
             <h3>Bill Details</h3>
 
             <div className='order'>
                 <p>Item total</p>
-                <p>₹<span>2,515</span></p>
+                <p>₹<span>{totalCTX.cartTotal.totalPrice}</span></p>
             </div>
 
             <div className='tax'>
                 <p>Taxes & charges</p>
-                <p>₹<span>125.75</span></p>
+                <p>₹<span>000</span></p>
             </div>
 
             <div className='offer'>
                 <p>Offer</p>
-                <p>₹<span>150</span></p>
+                <p>₹<span>000</span></p>
             </div>
 
             <div className='total'>
                 <p>Bill total</p>
-                <p className='totalAmount'>₹<span>2,640.75</span></p>
+                <p className='totalAmount'>₹<span>{totalCTX.cartTotal.totalPrice}</span></p>
             </div>
 
         </div>
@@ -87,17 +91,17 @@ function BillDetails() {
 
 // ===========================================
 
-function SillyHeader(){
+function SillyHeader() {
 
     // Context To Close Cart
-    const context_OpenCloseCart=useContext(CartOpenClose_CONTEXT)
+    const context_OpenCloseCart = useContext(CartOpenClose_CONTEXT)
     // Function Run when cart close button is clicked
-    const CloseCartHandeler_Function=()=>{
+    const CloseCartHandeler_Function = () => {
         context_OpenCloseCart.openCart_FUNC(false)
     }
 
-    
-    return ( 
+
+    return (
         <div className='SillyHeader-div '>
             <div className='header'>
                 <i className='bx bx-cart-alt'></i>
@@ -108,9 +112,9 @@ function SillyHeader(){
                 <i onClick={CloseCartHandeler_Function} className='bx bx-x'></i>
             </div>
         </div>
-     );
+    );
 }
 
 
 
-export { FlipFlopSwitch, DefaultFavourites, CartOffersAndCoupons, BillDetails,SillyHeader };
+export { FlipFlopSwitch, DefaultFavourites, CartOffersAndCoupons, BillDetails, SillyHeader };
