@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import VIEWCARTDATA_CONTEXT from "./ViewCartDataContext";
+import CartOpenClose_CONTEXT from '../CartOpenClose/CartOpenCloseContext';
+import { useContext } from 'react';
 
 
 const VIEWCARTDATA_PROVIDER = (props) => {
+    // Load When CartOpenClose Button is clickd
+
 
     // Get Cart Data
     const [cartData, setCartData] = useState({
@@ -66,6 +70,8 @@ const VIEWCARTDATA_PROVIDER = (props) => {
     /*                          GET DATA WHEN SCREEN LOAD                         */
     /* -------------------------------------------------------------------------- */
 
+    const CartOpenCloseCTX = useContext(CartOpenClose_CONTEXT)
+
     useEffect(() => {
         if (localStorage.getItem("CARTDATA") !== null && localStorage.getItem("CARTTOTAL") !== null) {
             // Geting Cart From Localstorage
@@ -78,14 +84,7 @@ const VIEWCARTDATA_PROVIDER = (props) => {
             // Update the hoverCartDetails totalAmount && totalQuantity
             setCartTotals(cartTotalDataFromLocal)
         }
-    }, [])
-
-
-
-
-
-
-
+    }, [CartOpenCloseCTX.openCart_BOOL])    //Run Whenever HoverCart Is Clicked
 
 
     return (
