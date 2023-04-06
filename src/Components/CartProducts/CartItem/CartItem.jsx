@@ -14,8 +14,9 @@ function CartItem(props) {
             <div className='CartItem-div-item-price'>
                 <p className='CartItem-div-item-quantity'>{props.quantity}</p>
 
-                <p className='original'>{props.price}</p>
-                <p className='discount'>{"DISCOUNT"}</p>
+                <p className='original'><span>{props.quantity}</span> * <span>{props.price}</span> = <span>{props.quantity * props.price}</span></p>
+
+                {/* <p className='discount'>{"DISCOUNT"}</p> */}
             </div>
         </div>
     );

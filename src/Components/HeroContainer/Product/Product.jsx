@@ -3,20 +3,20 @@ import "./Product.css"
 import { ProductDetails, ProductPhoto } from './SillyProductComponent/SillyProductComponent';
 
 
-function  Product (props) {
-
- 
+function Product(props) {
 
 
 
-    return ( 
+    console.log("RENDER");
+
+    return (
 
         <div className=' Product-div '>
-            <ProductDetails details={props.details}/>
-            <ProductPhoto  details={props.details} />
+            <ProductDetails details={props.details} />
+            <ProductPhoto details={props.details} />
         </div>
 
-     );
+    );
 }
 
 export default Product;

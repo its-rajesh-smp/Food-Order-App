@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import "./Cart.css"
 import CartOpenClose_CONTEXT from '../../Context/CartOpenClose/CartOpenCloseContext';
 import VIEWCARTDATA_CONTEXT from '../../Context/ViewCartData/ViewCartDataContext';

@@ -9,6 +9,8 @@ function ProductPhoto(props) {
   const context = useContext(VIEWCARTDATA_CONTEXT);
   const [quantityCount, setQuantityCount] = useState(0);
 
+
+
   useEffect(() => {
     // Checking If the updateCart is undefined or not
     if (context.updateCart !== undefined) {
@@ -27,7 +29,7 @@ function ProductPhoto(props) {
         props.details.quantity = context.updateCart[props.details.name].quantity
       }
     }
-  }, [context.updateCart, props.details])
+  }, [context.updateCart])
 
 
 

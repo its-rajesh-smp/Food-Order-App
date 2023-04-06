@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import "./HeroContainer.css";
 import Product from "./Product/Product";
 
-import VIEWCARTDATA_CONTEXT from "../../Context/ViewCartData/ViewCartDataContext";
+
 
 function HeroContainer(props) {
-
 
 
 

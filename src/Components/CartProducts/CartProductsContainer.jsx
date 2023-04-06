@@ -5,6 +5,7 @@ import CartPageData_Context from '../../Context/CartPageData/CartPageDataContext
 
 function CartProductsContainer(props) {
 
+    // Getting CartDataArray
     const cartDatCTX = useContext(CartPageData_Context)
 
 

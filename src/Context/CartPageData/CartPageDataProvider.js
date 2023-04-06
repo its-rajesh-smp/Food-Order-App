@@ -15,6 +15,8 @@ const CartPageData_Provider = (props) => {
         // Geting The LocalStorage Object
         const localData = JSON.parse(localStorage.getItem("CARTDATA"))
         const localCartTotal = JSON.parse(localStorage.getItem("CARTTOTAL"))
+        const localOfferData = JSON.parse(localStorage.getItem("APPLIEDOFFER"))
+
 
         // If CARTDATA is present
         if (localData !== undefined && localCartTotal !== undefined) {
@@ -30,7 +32,16 @@ const CartPageData_Provider = (props) => {
             }
             // Sending array of object to the CartProductContainer.jsx
             setCartDataArray(localDataArray)
-            setCartTotal(localCartTotal)
+
+            if (localOfferData !== null) {
+                localCartTotal.discount = localOfferData.discount
+                setCartTotal(localCartTotal)
+                console.log(localCartTotal.discount);
+            }
+            else {
+                localCartTotal.discount = 0
+                setCartTotal(localCartTotal)
+            }
 
         }
     }, [])

@@ -6,7 +6,7 @@ import { useContext } from 'react';
 
 
 const VIEWCARTDATA_PROVIDER = (props) => {
-    // Load When CartOpenClose Button is clickd
+    // Load When CartOpenClose  Button is clickd
 
 
     // Get Cart Data
