@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./HeroContainer.css";
 import Product from "./Product/Product";
 
+import VIEWCARTDATA_CONTEXT from "../../Context/ViewCartData/ViewCartDataContext";
+
 function HeroContainer(props) {
-
-
 
 
 
@@ -16,7 +16,6 @@ function HeroContainer(props) {
 
 
       <Product
-
         details={{
           name: "Fish Curry",
           price: 256,

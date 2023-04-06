@@ -16,6 +16,9 @@ const VIEWCARTDATA_PROVIDER = (props) => {
     // State To Update CartTotals
     const [cartTotals, setCartTotals] = useState({ totalPrice: 0, totalQuantity: 0 })
 
+    // State To Update Quantity From LocalStorage If Item Present In Cart When Screen Load
+    const [updateCart, setUpdateCart] = useState()
+
 
     /* -------------------------------------------------------------------------- */
     /*                            UPDATE LOCAL STORAGE                            */
@@ -29,12 +32,10 @@ const VIEWCARTDATA_PROVIDER = (props) => {
             // Create a object of price & quantity
             const details = { price: cartData.price, quantity: cartData.quantity }
 
-
-
             // If nothing is present in the localStorage
-            if (localStorage.getItem("CARTDATA") === null) {
+            if (localStorage.getItem("CARTDATA") === null && localStorage.getItem("CARTTOTAL") === null) {
                 // create a object of object
-                // CARTNAME : {Product1:{price:50,quantity:5}}
+                // CARTNAME : {itemName:{price:50,quantity:5}}
                 localStorage.setItem("CARTDATA", JSON.stringify({ [itemName]: details }))
             }
             // If CARTDATA object exist
@@ -54,16 +55,41 @@ const VIEWCARTDATA_PROVIDER = (props) => {
                 localStorage.setItem("CARTDATA", JSON.stringify(getData))
 
             }
+            // Also Storing the CartTotal each time
+            localStorage.setItem("CARTTOTAL", JSON.stringify(cartTotals))
 
         }
     }, [cartTotals, cartData])
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                          GET DATA WHEN SCREEN LOAD                         */
+    /* -------------------------------------------------------------------------- */
+
+    useEffect(() => {
+        if (localStorage.getItem("CARTDATA") !== null && localStorage.getItem("CARTTOTAL") !== null) {
+            // Geting Cart From Localstorage
+            const cartDataFromLocal = JSON.parse(localStorage.getItem("CARTDATA"))
+            const cartTotalDataFromLocal = JSON.parse(localStorage.getItem("CARTTOTAL"))
+
+            // Sending To SillyProductComponent to update quantitys
+            setUpdateCart(cartDataFromLocal)
+
+            // Update the hoverCartDetails totalAmount && totalQuantity
+            setCartTotals(cartTotalDataFromLocal)
+        }
+    }, [])
+
+
+
+
 
 
 
 
 
     return (
-        <VIEWCARTDATA_CONTEXT.Provider value={{ setCartData, cartTotals, setCartTotals }}>
+        <VIEWCARTDATA_CONTEXT.Provider value={{ setCartData, cartTotals, setCartTotals, updateCart }}>
             {props.children}
         </VIEWCARTDATA_CONTEXT.Provider>
     )

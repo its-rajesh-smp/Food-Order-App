@@ -5,9 +5,30 @@ import { img } from "../../../../DATA";
 import VIEWCARTDATA_CONTEXT from "../../../../Context/ViewCartData/ViewCartDataContext";
 
 function ProductPhoto(props) {
-  const [quantityCount, setQuantityCount] = useState(0);
 
   const context = useContext(VIEWCARTDATA_CONTEXT);
+  const [quantityCount, setQuantityCount] = useState(0);
+
+  useEffect(() => {
+    // Checking If the updateCart is undefined or not
+    if (context.updateCart !== undefined) {
+      // Checking If The Cart Product is available in Our Product List Or Not
+      if (context.updateCart[props.details.name]) {
+
+        // Quantity and price of that specific cart product
+        const localQuantity = context.updateCart[props.details.name].quantity
+
+        // Updating the product quantity
+        setQuantityCount(localQuantity)
+
+        // When user click to increase the quantity we have increament the stored quantity so initially i give the quantity attribute to that cart product
+        // Next time when user click the button
+        // todo props.details.quantity == undefined | become false and it will update the current product quantity by this | (props.details.quantity += 1) |
+        props.details.quantity = context.updateCart[props.details.name].quantity
+      }
+    }
+  }, [context.updateCart, props.details])
+
 
   /* -------------------------------------------------------------------------- */
   /*                            INCREAMENT DATA SEND                            */
@@ -24,7 +45,7 @@ function ProductPhoto(props) {
       name: props.details.name,
       price: props.details.price,
       quantity:
-        props.details.quantity == undefined
+        props.details.quantity === undefined
           ? (props.details.quantity = 1)
           : (props.details.quantity += 1),
     };
@@ -59,7 +80,7 @@ function ProductPhoto(props) {
         name: props.details.name,
         price: props.details.price,
         quantity:
-          props.details.quantity == undefined
+          props.details.quantity === undefined
             ? (props.details.quantity = 1)
             : (props.details.quantity -= 1),
       };
@@ -76,6 +97,12 @@ function ProductPhoto(props) {
 
     }
   };
+
+  /* -------------------------------------------------------------------------- */
+  /*                      UPDATE QUANTITY WHEN SCREEN LOAD                      */
+  /* -------------------------------------------------------------------------- */
+
+
 
 
 
