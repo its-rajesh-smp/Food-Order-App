@@ -30,6 +30,9 @@ function ProductPhoto(props) {
   }, [context.updateCart, props.details])
 
 
+
+
+
   /* -------------------------------------------------------------------------- */
   /*                            INCREAMENT DATA SEND                            */
   /* -------------------------------------------------------------------------- */
@@ -99,8 +102,9 @@ function ProductPhoto(props) {
   };
 
   /* -------------------------------------------------------------------------- */
-  /*                      UPDATE QUANTITY WHEN SCREEN LOAD                      */
+  /*                     CHENGE BUTTON IF ITEM IS NOT ADDED                     */
   /* -------------------------------------------------------------------------- */
+
 
 
 
@@ -114,11 +118,16 @@ function ProductPhoto(props) {
       </div>
 
       <div className="ProductPhoto-div-button">
-        <button onClick={decrement}>-</button>
 
-        <p>{quantityCount}</p>
+        {/* If Quantity is Not 0 then we have to show the quantity and buttons otherwise i will show only ADD with onclick event */}
+        {quantityCount !== 0 && <button onClick={decrement}>-</button>}
 
-        <button onClick={increament}>+</button>
+        {quantityCount === 0 && <p style={{ cursor: "pointer" }} onClick={increament}>{"ADD"}</p>}
+
+        {quantityCount !== 0 && <p>{quantityCount}</p>}
+
+        {quantityCount !== 0 && <button onClick={increament}>+</button>}
+
       </div>
     </div>
   );
