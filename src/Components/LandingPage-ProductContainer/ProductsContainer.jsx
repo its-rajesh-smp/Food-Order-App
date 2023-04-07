@@ -1,6 +1,6 @@
 import React from "react";
-import "./HeroContainer.css";
-import Product from "./Product/Product";
+import "./ProductsContainer.css";
+import Product from "../UI/ProductSection/Product/Product";
 
 
 

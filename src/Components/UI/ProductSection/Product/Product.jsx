@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Product.css"
-import { ProductDetails, ProductPhoto } from './SillyProductComponent/SillyProductComponent';
+import ProductDetailsSide from "./Product-ProductDetailsSide/ProductDetailsSide"
+import ProductPhotoSide from "./Product-ProductPhotoSide/ProductPhotoSide"
 
 
 function Product(props) {
@@ -12,8 +13,8 @@ function Product(props) {
     return (
 
         <div className=' Product-div '>
-            <ProductDetails details={props.details} />
-            <ProductPhoto details={props.details} />
+            <ProductDetailsSide details={props.details} />
+            <ProductPhotoSide details={props.details} />
         </div>
 
     );

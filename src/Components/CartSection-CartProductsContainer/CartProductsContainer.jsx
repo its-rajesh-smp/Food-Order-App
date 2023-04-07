@@ -1,24 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import "./CartProductsContainer.css"
-import CartItem from './CartItem/CartItem';
-import CartPageData_Context from '../../Context/CartPageData/CartPageDataContext';
+import CartItem from "../UI/CartSection/CartItem/CartItem"
+
 
 function CartProductsContainer(props) {
 
-    // Getting CartDataArray
-    const cartDatCTX = useContext(CartPageData_Context)
 
 
 
     return (
         <div className=' CartProductsContainer-div '>
             {
-                // Updating Dom
-                cartDatCTX.cartDataArray.map((val) => {
-                    return (
-                        <CartItem name={val.name} price={val.price} quantity={val.quantity} key={Math.random()} />
-                    )
-                })
+                <CartItem name={"CHICKEN"} price={299} quantity={30} key={Math.random()} />
             }
         </div>
     );

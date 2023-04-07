@@ -1,27 +1,32 @@
 import React from 'react';
 import "./ProductPage.css"
-import Header from '../../Components/UI/Landing-Header/PrimaryHeader';
-import Cart from '../../Components/Cart/Cart';
-import SelectedCurrentLocation from '../../Components/SelectedCurrentLocation/SelectedCurrentLocation';
-import OffersForYou from '../../Components/Offers For You/OffersForYou';
-import Search from '../Components/Search/Search';
-import VegNonVegFilter from '../Components/VegNonVegFilter/VegNonVegFilter';
-import YourFavourites from '../../Components/YourFavourites/YourFavourites';
-import HeroContainer from '../../Components/HeroContainer/HeroContainer';
+
+import PrimaryHeader from "../../Components/UI/ProductSection/PrimaryHeader/PrimaryHeader";
+import SelectedCurrentLocation from "../../Components/UI/ProductSection/SelectedCurrentLocation/SelectedCurrentLocation"
+import OffersContainer from "../../Components/LandingPage-OffersContainer/OffersContainer"
+import Search from "../../Components/UI/ProductSection/Search/Search"
+import VegNonVegFilter from "../../Components/UI/ProductSection/VegNonVegFilter/VegNonVegFilter"
+import FaviouritesContainer from "../../Components/LandingPage-FaviouritesContainer/FaviouritesContainer"
+
+import ProductsContainer from "../../Components/LandingPage-ProductContainer/ProductsContainer"
+
+
+import CartHoverBtn from '../../Components/UI/ProductSection/CartHoverBtn/CartHoverBtn';
 
 function ProductPage(props) {
 
     return (
         <div className=' ProductPage-div '>
 
-            <Header />
+            <PrimaryHeader />
             <SelectedCurrentLocation />
-            <OffersForYou />
+            <OffersContainer />
             <Search />
             <VegNonVegFilter />
-            <YourFavourites />
-            <HeroContainer />
-            <Cart />
+            <FaviouritesContainer />
+            <ProductsContainer />
+
+            <CartHoverBtn />
 
 
         </div>

@@ -3,11 +3,11 @@ import "./BillDetails.css"
 
 function BillDetails() {
 
-    const totalCTX = useContext(CartPageData_Context)
-    const totalPrice = totalCTX.cartTotal.totalPrice
-    const discount = totalCTX.cartTotal.discount === undefined ? 0 : totalCTX.cartTotal.discount
+    const totalCTX = 0
+    const totalPrice = 0
+    const discount = 0
     const tax = 0
-    const finalPrice = (totalPrice - discount) + tax
+    const finalPrice = 0
 
 
     return (

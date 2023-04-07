@@ -1,19 +1,13 @@
 import React, { useContext } from 'react';
 import "./SecondaryHeader.css"
-
-import CartOpenClose_CONTEXT from '../../../../Context/CartOpenClose/CartOpenCloseContext';
-import CartPageData_Context from '../../../../Context/CartPageData/CartPageDataContext';
+import CartOpenCloseCTX from '../../../../Context/CartOpenClose/CartOpenCloseContext';
 
 
 
 function SecondaryHeader() {
 
-    // Context To Close Cart
-    const context_OpenCloseCart = useContext(CartOpenClose_CONTEXT)
-    // Function Run when cart close button is clicked
-    const CloseCartHandeler_Function = () => {
-        context_OpenCloseCart.openCart_FUNC(false)
-    }
+    const cartCloseCTX = useContext(CartOpenCloseCTX)
+
 
 
     return (
@@ -24,7 +18,7 @@ function SecondaryHeader() {
             </div>
 
             <div>
-                <i onClick={CloseCartHandeler_Function} className='bx bx-x'></i>
+                <i onClick={cartCloseCTX.closeCartPage} className='bx bx-x'></i>
             </div>
         </div>
     );

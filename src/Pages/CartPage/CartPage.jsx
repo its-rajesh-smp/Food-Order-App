@@ -1,9 +1,12 @@
 import React from 'react';
 import "./CartPage.css"
-import DelivaryAddress from '../Components/DelivaryAddress/DelivaryAddress';
-import CartProductsContainer from '../../Components/CartSection-CartProductsContainer/CartProductsContainer';
-import { BillDetails, CartOffersAndCoupons, SillyHeader } from '../Components/SillyComponents/SillyComponents';
-import Order from '../Components/Order/Order';
+
+import DelivaryAddress from "../../Components/UI/CartSection/DelivaryAddress/DelivaryAddress"
+import CartProductsContainer from "../../Components/CartSection-CartProductsContainer/CartProductsContainer"
+import CartOffersAndCoupons from "../../Components/UI/CartSection/CartSection-OffersAndCoupons/CartOffersAndCoupons"
+import BillDetails from "../../Components/UI/CartSection/CartSection-BillDetails/BillDetails"
+import PlaceOrderBtn from "../../Components/UI/CartSection/CarSection-PlaceOrderButton/PlaceOrderBtn"
+import SecondaryHeader from "../../Components/UI/CartSection/CartSection-SecondaryHeader/SecondaryHeader"
 import CartPageData_Provider from '../../Context/CartPageData/CartPageDataProvider';
 
 function CartPage(props) {
@@ -12,12 +15,13 @@ function CartPage(props) {
         <CartPageData_Provider>
 
             <div className=' CartPage-div '>
-                <SillyHeader />
+
+                <SecondaryHeader />
                 <DelivaryAddress />
                 <CartProductsContainer />
                 <CartOffersAndCoupons />
                 <BillDetails />
-                <Order />
+                <PlaceOrderBtn />
             </div>
 
         </CartPageData_Provider>

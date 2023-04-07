@@ -1,6 +1,6 @@
 import React from "react";
 import "./OffersContainer.css";
-import Offers from "./Offers/Offers";
+import Offer from "../../Components/UI/Offer/Offer"
 
 
 function OffersContainer(props) {
@@ -17,8 +17,8 @@ function OffersContainer(props) {
 
             <div className="my-offers-div">
 
-                <Offers offerName="Flat50" offerCode="sharpener50" discount={50} />
-                <Offers offerName="Flat10" offerCode="kolkataLocal10" discount={10} />
+                <Offer offerName="Flat50" offerCode="sharpener50" discount={50} />
+                <Offer offerName="Flat10" offerCode="kolkataLocal10" discount={10} />
 
             </div>
         </div>
