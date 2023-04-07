@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import AddToCartCTX from "./AddToCartCTX";
 
@@ -6,6 +6,8 @@ const AddToCartProvider = (props) => {
     /* -------------------------------------------------------------------------- */
     /*                             INCREAMENT QUANTITY                            */
     /* -------------------------------------------------------------------------- */
+
+    console.log("AddToCartCONTEXTRender");
 
     const getDataWhenBTNclick = (quantity, ProductDetails) => {
         // Create a object where item name is the key
@@ -22,10 +24,42 @@ const AddToCartProvider = (props) => {
         sendDataToServer(newProductData, ProductDetails.name);
     };
 
+
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                       FETCH DATA FROM LOCAL STORAGE                       */
+    /* -------------------------------------------------------------------------- */
+    //!This is the problem
+    // State to update total amount & total quantity
+    const [totalCart, setTotalCart] = useState({ price: 0, quantity: 0 })
+    // State to send local data
+    const [localCartData, setLocalCartData] = useState({})
+
+    useEffect(() => {
+        const CartTotal = JSON.parse(localStorage.getItem("USER_CART_TOTAL"))
+        const CartData = JSON.parse(localStorage.getItem("USER_CART_PRODUCT_DATA"))
+
+        if (CartTotal !== null && CartData !== null) {
+            setTotalCart(CartTotal)
+            setLocalCartData(CartData)
+        }
+    }, [])
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                                UPDATE TOTAL                                */
+    /* -------------------------------------------------------------------------- */
+    useEffect(() => {
+        localStorage.setItem("USER_CART_TOTAL", JSON.stringify(totalCart))
+    }, [totalCart])
+
+
+
     /* -------------------------------------------------------------------------- */
     /*                       FUNCTION TO ADD IN LOCALSTORAGE                      */
     /* -------------------------------------------------------------------------- */
-    const sendDataToServer = (ProductDetails, ProductKey) => {
+    function sendDataToServer(ProductDetails, ProductKey) {
         if (localStorage.getItem("USER_CART_PRODUCT_DATA") === null) {
             // If something present inside localStorage
             localStorage.setItem(
@@ -38,8 +72,6 @@ const AddToCartProvider = (props) => {
             const getAllCartProductData = JSON.parse(
                 localStorage.getItem("USER_CART_PRODUCT_DATA")
             );
-
-
 
 
             if (getAllCartProductData[ProductKey] === undefined) {
@@ -64,8 +96,18 @@ const AddToCartProvider = (props) => {
         }
     };
 
+
+    /* -------------------------------------------------------------------------- */
+    /*                     UPDATE QUANTITY FROM LOCAL STORAGE                     */
+    /* -------------------------------------------------------------------------- */
+
+
+
+
+
+
     return (
-        <AddToCartCTX.Provider value={{ getDataWhenBTNclick }}>
+        <AddToCartCTX.Provider value={{ getDataWhenBTNclick, totalCart, setTotalCart, localCartData }}>
             {props.children}
         </AddToCartCTX.Provider>
     );

@@ -2,7 +2,7 @@ import React from "react";
 
 const AddToCartCTX = React.createContext({
   getDataWhenBTNclick: () => { },
-  setCartTotals: "",
+  updateTotal: () => { },
 });
 
 export default AddToCartCTX;

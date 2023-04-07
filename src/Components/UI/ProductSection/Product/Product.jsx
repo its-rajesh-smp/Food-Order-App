@@ -8,7 +8,7 @@ function Product(props) {
 
 
 
-    // console.log("RENDER");
+    // console.log("ITEMRENDER");
 
     return (
 
