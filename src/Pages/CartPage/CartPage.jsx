@@ -7,24 +7,23 @@ import CartOffersAndCoupons from "../../Components/UI/CartSection/CartSection-Of
 import BillDetails from "../../Components/UI/CartSection/CartSection-BillDetails/BillDetails"
 import PlaceOrderBtn from "../../Components/UI/CartSection/CarSection-PlaceOrderButton/PlaceOrderBtn"
 import SecondaryHeader from "../../Components/UI/CartSection/CartSection-SecondaryHeader/SecondaryHeader"
-import CartPageData_Provider from '../../Context/CartPageData/CartPageDataProvider';
+
 
 function CartPage(props) {
     return (
 
-        <CartPageData_Provider>
 
-            <div className=' CartPage-div '>
+        <div className=' CartPage-div '>
 
-                <SecondaryHeader />
-                <DelivaryAddress />
-                <CartProductsContainer />
-                <CartOffersAndCoupons />
-                <BillDetails />
-                <PlaceOrderBtn />
-            </div>
+            <SecondaryHeader />
+            <DelivaryAddress />
+            <CartProductsContainer />
+            <CartOffersAndCoupons />
+            <BillDetails />
+            <PlaceOrderBtn />
+        </div>
 
-        </CartPageData_Provider>
+
 
     );
 }

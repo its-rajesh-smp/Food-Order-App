@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import AddToCartCTX from "./AddToCartCTX";
+import CartOpenCloseContext from "../CartOpenClose/CartOpenCloseContext"
 
 const AddToCartProvider = (props) => {
+    const renderWhenOpen = useContext(CartOpenCloseContext)
     /* -------------------------------------------------------------------------- */
     /*                             INCREAMENT QUANTITY                            */
     /* -------------------------------------------------------------------------- */
@@ -44,7 +46,7 @@ const AddToCartProvider = (props) => {
             setTotalCart(CartTotal)
             setLocalCartData(CartData)
         }
-    }, [])
+    }, [renderWhenOpen.openCartPage_BOOL])
 
 
     /* -------------------------------------------------------------------------- */

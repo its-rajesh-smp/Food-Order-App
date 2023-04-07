@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CartPageData_Context from './CartPageDataContext';
-
+import AddToCartCTX from '../AddToCart/AddToCartCTX';
 
 const CartPageData_Provider = (props) => {
+
+    const updateData = useContext(AddToCartCTX)
 
 
 
 
     return (
-        <CartPageData_Context.Provider value={{}}>
+        <CartPageData_Context.Provider value={{ updateData }}>
             {props.children}
         </CartPageData_Context.Provider>
     )

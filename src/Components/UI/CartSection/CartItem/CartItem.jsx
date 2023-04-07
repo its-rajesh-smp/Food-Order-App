@@ -1,7 +1,43 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import "./CartItem.css"
+import CartPageData_Context from '../../../../Context/CartPageData/CartPageDataContext';
 
 function CartItem(props) {
+    const update = useContext(CartPageData_Context)
+
+    const [quantity, setQuantity] = useState(props.quantity)
+
+    /* -------------------------------------------------------------------------- */
+    /*                                 INCREAMENT                                 */
+    /* -------------------------------------------------------------------------- */
+
+    const increament = () => {
+        setQuantity((prev) => {
+            update.updateData.getDataWhenBTNclick(prev + 1, props)
+            return prev + 1
+        })
+        update.updateData.setTotalCart((prev) => {
+            return { price: prev.price + props.price, quantity: prev.quantity + 1 }
+        })
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /*                                 DECREAMENT                                 */
+    /* -------------------------------------------------------------------------- */
+    const decreament = () => {
+        if (quantity > 0) {
+
+            setQuantity((prev) => {
+                update.updateData.getDataWhenBTNclick(prev - 1, props)
+                return prev - 1
+            })
+            update.updateData.setTotalCart((prev) => {
+                return { price: prev.price - props.price, quantity: prev.quantity - 1 }
+            })
+        }
+    }
+
+
     return (
         <div className=' CartItem-div '>
 
@@ -12,9 +48,9 @@ function CartItem(props) {
 
 
             <div className='CartItem-div-item-price'>
-                <p className='CartItem-div-item-quantity'>{props.quantity}</p>
+                <p className='CartItem-div-item-quantity'><span onClick={decreament}>-</span>{quantity}<span onClick={increament}>+</span></p>
 
-                <p className='original'><span>{props.quantity}</span> * <span>{props.price}</span> = <span>{props.quantity * props.price}</span></p>
+                <p onClick={decreament} className='original'><span>{quantity}</span> * <span>{props.price}</span> = <span>{quantity * props.price}</span></p>
 
                 {/* <p className='discount'>{"DISCOUNT"}</p> */}
             </div>
