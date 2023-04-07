@@ -1,0 +1,20 @@
+.SecondaryHeader-div {
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 15px;
+  height: 60px;
+}
+.SecondaryHeader-div div {
+  display: flex;
+  align-items: center;
+}
+.SecondaryHeader-div .bx-x,
+.SecondaryHeader-div .bx-cart-alt {
+  font-size: 40px;
+  cursor: pointer;
+}/*# sourceMappingURL=SecondaryHeader.css.map */

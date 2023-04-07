@@ -1,0 +1,22 @@
+.ProductPhotoSide-div {
+  display: flex;
+  flex-direction: column;
+  height: 110px;
+  width: 110px;
+  font-family: poppins;
+  margin-top: 5px;
+}
+.ProductPhotoSide-div .ProductPhotoSide-div-img {
+  border-radius: 10px;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ProductPhotoSide-div .ProductPhotoSide-div-img img {
+  border-radius: 10px;
+  height: 110px;
+  width: 110px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=ProductPhotoSide.css.map */

@@ -1,0 +1,24 @@
+.FaviouritesContainer-div {
+  border-bottom: 6px solid rgb(224, 223, 223);
+  font-family: poppins;
+}
+
+.FaviouritesContainer-div-heading {
+  padding: 0px 5px;
+}
+.FaviouritesContainer-div-heading h3 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.FaviouritesContainer-div-heading i {
+  color: red;
+}
+
+.FaviouritesContainer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 150px;
+  padding: 5px 10px;
+}/*# sourceMappingURL=FaviouritesContainer.css.map */
