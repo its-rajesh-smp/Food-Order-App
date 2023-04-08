@@ -9,8 +9,8 @@ function Offer(props) {
 
     // Function To Send Data On Click
     const applyOfferCTXOnClick = () => {
-        applyOfferCTX.setOfferFUNC({ offerName: props.offerName, offerCode: props.offerCode, discount: props.discount })
-
+        // Send Data to OFferPromoCTX
+        applyOfferCTX.getClickedOfferDetails(props)
     }
 
 
