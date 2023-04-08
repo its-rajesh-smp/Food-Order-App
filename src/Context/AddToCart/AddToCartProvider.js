@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import AddToCartCTX from "./AddToCartCTX";
-import CartOpenCloseContext from "../CartOpenClose/CartOpenCloseContext"
+import CartOpenCloseCTX from "../CartOpenClose/CartOpenCloseContext";
 
 const AddToCartProvider = (props) => {
-    const renderWhenOpen = useContext(CartOpenCloseContext)
     /* -------------------------------------------------------------------------- */
     /*                             INCREAMENT QUANTITY                            */
     /* -------------------------------------------------------------------------- */
 
-    console.log("AddToCartCONTEXTRender");
+
 
     const getDataWhenBTNclick = (quantity, ProductDetails) => {
         // Create a object where item name is the key
@@ -32,8 +31,11 @@ const AddToCartProvider = (props) => {
     /* -------------------------------------------------------------------------- */
     /*                       FETCH DATA FROM LOCAL STORAGE                       */
     /* -------------------------------------------------------------------------- */
+    // Just because we have to run this bellow useEffect whenever the screen open
+    const renderWhenOpen = useContext(CartOpenCloseCTX)
+
     //!This is the problem
-    // State to update total amount & total quantity
+    // State to update total amount & total quantity of cart Hover
     const [totalCart, setTotalCart] = useState({ price: 0, quantity: 0 })
     // State to send local data
     const [localCartData, setLocalCartData] = useState({})
@@ -41,16 +43,16 @@ const AddToCartProvider = (props) => {
     useEffect(() => {
         const CartTotal = JSON.parse(localStorage.getItem("USER_CART_TOTAL"))
         const CartData = JSON.parse(localStorage.getItem("USER_CART_PRODUCT_DATA"))
-
         if (CartTotal !== null && CartData !== null) {
             setTotalCart(CartTotal)
             setLocalCartData(CartData)
+            console.log(CartData);
         }
     }, [renderWhenOpen.openCartPage_BOOL])
 
 
     /* -------------------------------------------------------------------------- */
-    /*                                UPDATE TOTAL                                */
+    /*                       UPDATE TOTAL IN LOCAL  STORAGE                       */
     /* -------------------------------------------------------------------------- */
     useEffect(() => {
         localStorage.setItem("USER_CART_TOTAL", JSON.stringify(totalCart))

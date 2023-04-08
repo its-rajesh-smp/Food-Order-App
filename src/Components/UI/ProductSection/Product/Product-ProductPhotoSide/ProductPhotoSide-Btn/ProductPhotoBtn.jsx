@@ -3,12 +3,13 @@ import React, { useContext, useEffect } from "react";
 import "./ProductPhotoBtn.css";
 import { useState } from "react";
 import AddToCartCTX from "../../../../../../Context/AddToCart/AddToCartCTX";
-
+import CartOpenCloseCTX from "../../../../../../Context/CartOpenClose/CartOpenCloseContext"
 function ProductPhotoBtn(props) {
-    console.log("RENDER");
+    // console.log("RENDER");
 
     // Context
     const updateQuantityCTX = useContext(AddToCartCTX);
+    const renderWhenOpen = useContext(CartOpenCloseCTX)
 
     // State to change the Quanity value
     const [quanity, setQuanity] = useState(0);
@@ -19,14 +20,30 @@ function ProductPhotoBtn(props) {
     /* -------------------------------------------------------------------------- */
     useEffect(() => {
         const localCartData = updateQuantityCTX.localCartData
-        if (localCartData != {}) {
+        // I am checking if anything present in the localCartData
+        // In this way just because
+        // if i try to check if localCartData is empty or not by localCartData !=={}
+        // it will gives us true
+        // ? console.log(localCartData !== {} )--> true
+        // ? console.log(localCartData === {} )--> true
+        if (Object.keys(localCartData).length !== 0) {
+            // then i am updating the quantity of that particular product
             const name = props.details.name
             if (localCartData[name]) {
+                // Updating the state of that particular quantity if it present in the cart
                 setQuanity(localCartData[name].quantity)
             }
+            else {
+                // else updating it to 0
+                setQuanity(0)
+            }
         }
-    }, [updateQuantityCTX.localCartData])
-
+        else {
+            // Else I am updating all product quantitys to 0
+            console.log("RUNNING ELSE");
+            setQuanity(0)
+        }
+    }, [updateQuantityCTX.localCartData, renderWhenOpen.openCartPage_BOOL])
 
 
 

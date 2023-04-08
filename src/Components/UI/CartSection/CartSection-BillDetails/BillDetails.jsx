@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "./BillDetails.css"
 
 function BillDetails() {
 
-    const totalCTX = 0
-    const totalPrice = 0
+
+
+    const total = 0
+    const totalPrice = total
     const discount = 0
     const tax = 0
-    const finalPrice = 0
+    const finalPrice = (total - discount) + tax
 
 
     return (

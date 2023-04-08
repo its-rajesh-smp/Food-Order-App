@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import "./CartItem.css"
-import CartPageData_Context from '../../../../Context/CartPageData/CartPageDataContext';
+import AddToCartCTX from '../../../../Context/AddToCart/AddToCartCTX';
 
 function CartItem(props) {
-    const update = useContext(CartPageData_Context)
+    const update = useContext(AddToCartCTX)
 
     const [quantity, setQuantity] = useState(props.quantity)
 
@@ -13,10 +13,10 @@ function CartItem(props) {
 
     const increament = () => {
         setQuantity((prev) => {
-            update.updateData.getDataWhenBTNclick(prev + 1, props)
+            update.getDataWhenBTNclick(prev + 1, props)
             return prev + 1
         })
-        update.updateData.setTotalCart((prev) => {
+        update.setTotalCart((prev) => {
             return { price: prev.price + props.price, quantity: prev.quantity + 1 }
         })
     }
@@ -28,10 +28,10 @@ function CartItem(props) {
         if (quantity > 0) {
 
             setQuantity((prev) => {
-                update.updateData.getDataWhenBTNclick(prev - 1, props)
+                update.getDataWhenBTNclick(prev - 1, props)
                 return prev - 1
             })
-            update.updateData.setTotalCart((prev) => {
+            update.setTotalCart((prev) => {
                 return { price: prev.price - props.price, quantity: prev.quantity - 1 }
             })
         }
