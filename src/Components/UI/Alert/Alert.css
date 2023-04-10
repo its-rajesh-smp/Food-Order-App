@@ -1,0 +1,38 @@
+.AlertConfirm-div-cover {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.548);
+  font-family: poppins;
+}
+.AlertConfirm-div {
+  display: flex;
+  width: 400px;
+  margin: 0px auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  padding: 100px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.AlertConfirm-div-btn {
+  display: flex;
+  gap: 5px;
+  padding: 20px;
+}
+.AlertConfirm-div-btn button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+}
+.AlertConfirm-div-btn button:first-child {
+  background-color: rgb(51, 123, 123);
+}
+.AlertConfirm-div-btn button:last-child {
+  background-color: rgb(224, 49, 49);
+}

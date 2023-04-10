@@ -30,9 +30,6 @@
   align-items: center;
   gap: 30px;
 }
-.CartItem-div .CartItem-div-item-price .original {
-  text-decoration: line-through;
-}
 .CartItem-div .CartItem-div-item-price .discount {
   color: green;
 }/*# sourceMappingURL=CartItem.css.map */

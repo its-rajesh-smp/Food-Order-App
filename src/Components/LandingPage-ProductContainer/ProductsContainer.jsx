@@ -19,15 +19,17 @@ function ProductContainer(props) {
           name: "Fish Curry",
           price: 256,
           desc: "Crispy and tender eggplant fries that are delicious to enjoy as a snack, side or",
+          img: "https://vismaifood.com/storage/app/uploads/public/daa/96d/7bc/thumb__700_0_0_0_auto.jpg"
         }}
       />
 
       <Product
 
         details={{
-          name: "Matar Curry",
+          name: "Matar Panir",
           price: 10,
           desc: "Crispy and tender eggplant fries that are delicious to enjoy as a snack, side or",
+          img: "https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Punjabi-Aloo-Matar-Recipe.jpg"
         }}
       />
 
@@ -36,6 +38,7 @@ function ProductContainer(props) {
           name: "Chicken Curry",
           price: 11,
           desc: "Crispy and tender eggplant fries that are delicious to enjoy as a snack, side or",
+          img: "https://glebekitchen.com/wp-content/uploads/2020/10/acharichickentopbowlserve.jpg"
         }}
       />
 

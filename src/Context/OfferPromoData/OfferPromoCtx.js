@@ -3,7 +3,8 @@ import CartOpenCloseCTX from "../CartOpenClose/CartOpenCloseContext"
 
 // CONTEXT
 const OfferPromoCTX = React.createContext({
-    getClickedOfferDetails: () => { }
+    getClickedOfferDetails: () => { },
+    changeOrRemoveOffer: () => { }
 });
 
 // PROVIDER
@@ -12,18 +13,27 @@ const OfferPromoProvider = (props) => {
     // Run when screen change
     const updateOnRender = useContext(CartOpenCloseCTX)
 
+    // State to Set applied Offer 
     const [appliedOffer, setAppliedOffer] = useState()
+
+    // State to add remove alert confirm card
+    const [alertConfirm, setAlertConfirm] = useState(false)
 
     /* -------------------------------------------------------------------------- */
     /*                    GET APPLIED OFFER FROM LOCAL STORAGE                    */
     /* -------------------------------------------------------------------------- */
 
     useEffect(() => {
+        // Getting the applied offer
         const localAppliedOffer = JSON.parse(localStorage.getItem("APPLIED_OFFER"))
         if (localAppliedOffer !== null) {
+            // send to another components
             setAppliedOffer(localAppliedOffer)
         }
-    }, [updateOnRender.openCartPage_BOOL])
+        else {
+            setAppliedOffer()
+        }
+    }, [updateOnRender.openCartPage_BOOL, alertConfirm])
 
 
 
@@ -41,19 +51,28 @@ const OfferPromoProvider = (props) => {
 
         // If nothing is present then upload it
         if (localStorage.getItem("APPLIED_OFFER") === null) {
-            localStorage.setItem("APPLIED_OFFER", JSON.stringify(newLocalData))
+            let confirm = window.confirm("Offer Can Be Applied Only Order On More Then 200 \n Please Confirm To Proceed")
+
+            if (confirm === true) {
+                localStorage.setItem("APPLIED_OFFER", JSON.stringify(newLocalData))
+                setAppliedOffer(newLocalData)
+                alert(`Offer Added 👍 \nOfferName ➡️ ${offerName} \nDiscount ➡️ ${offerDiscount} \nCode ➡️ ${offerCode}`);
+            }
+
         }
         else {
-            // Restrict the user to update once again if a offer is applied
-            alert("YOU HAVE ALREADY APPLIED AN OFFER")
+            // Restrict the user to update once again if a offer is already applied
+            // Open Confirm Alert Card
+            setAlertConfirm(true)
         }
-        setAppliedOffer(newLocalData)
     }
 
 
 
+
+
     return (
-        <OfferPromoCTX.Provider value={{ getClickedOfferDetails, appliedOffer }}>
+        <OfferPromoCTX.Provider value={{ getClickedOfferDetails, appliedOffer, alertConfirm, setAlertConfirm }}>
             {props.children}
         </OfferPromoCTX.Provider>
     );

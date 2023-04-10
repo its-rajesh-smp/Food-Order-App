@@ -5,7 +5,9 @@ import { useState } from "react";
 import AddToCartCTX from "../../../../../../Context/AddToCart/AddToCartCTX";
 import CartOpenCloseCTX from "../../../../../../Context/CartOpenClose/CartOpenCloseContext"
 function ProductPhotoBtn(props) {
-    // console.log("RENDER");
+    /**
+     * As the context is changing so components those are using the same context also rendering
+     */
 
     // Context
     const updateQuantityCTX = useContext(AddToCartCTX);
@@ -13,7 +15,6 @@ function ProductPhotoBtn(props) {
 
     // State to change the Quanity value
     const [quanity, setQuanity] = useState(0);
-
 
     /* -------------------------------------------------------------------------- */
     /*                   UPDATE THE QUANTITY FROM LOCAL STORAGE                   */
@@ -40,7 +41,6 @@ function ProductPhotoBtn(props) {
         }
         else {
             // Else I am updating all product quantitys to 0
-            console.log("RUNNING ELSE");
             setQuanity(0)
         }
     }, [updateQuantityCTX.localCartData, renderWhenOpen.openCartPage_BOOL])
@@ -100,4 +100,4 @@ function ProductPhotoBtn(props) {
     );
 }
 
-export default ProductPhotoBtn;
+export default React.memo(ProductPhotoBtn);

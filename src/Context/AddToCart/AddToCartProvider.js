@@ -9,7 +9,6 @@ const AddToCartProvider = (props) => {
     /* -------------------------------------------------------------------------- */
 
 
-
     const getDataWhenBTNclick = (quantity, ProductDetails) => {
         // Create a object where item name is the key
         // @ {  FishCurry : {   quantity:5 , price: 10  } }
@@ -24,7 +23,6 @@ const AddToCartProvider = (props) => {
         // So that we can update it letter in ther server
         sendDataToServer(newProductData, ProductDetails.name);
     };
-
 
 
 
@@ -43,10 +41,15 @@ const AddToCartProvider = (props) => {
     useEffect(() => {
         const CartTotal = JSON.parse(localStorage.getItem("USER_CART_TOTAL"))
         const CartData = JSON.parse(localStorage.getItem("USER_CART_PRODUCT_DATA"))
+        // If we find in local storage
         if (CartTotal !== null && CartData !== null) {
             setTotalCart(CartTotal)
             setLocalCartData(CartData)
-            console.log(CartData);
+        }
+        else {
+            // Changing the state variable to next time use
+            setTotalCart({ price: 0, quantity: 0 })
+            setLocalCartData({})
         }
     }, [renderWhenOpen.openCartPage_BOOL])
 
@@ -99,12 +102,6 @@ const AddToCartProvider = (props) => {
 
         }
     };
-
-
-    /* -------------------------------------------------------------------------- */
-    /*                     UPDATE QUANTITY FROM LOCAL STORAGE                     */
-    /* -------------------------------------------------------------------------- */
-
 
 
 

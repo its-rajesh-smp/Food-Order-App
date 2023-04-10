@@ -48,30 +48,36 @@ function BillDetails() {
 
 
         <div className='BillDetails-div'>
-            <h3>Bill Details</h3>
-
-            <div className='order'>
-                <p>Item total</p>
-                <p>₹<span>{totalPrice}</span></p>
-            </div>
-
-            <div className='tax'>
-                <p>Delivery charges</p>
-                <p>₹<span>{tax}</span></p>
-            </div>
-
             {
-                <div className='offer'>
-                    <p>Discount</p>
-                    <p>₹<span>{ItemTotal >= 200 ? discount : 0}</span></p>
-                </div>
+                ItemTotal > 0 ?
+                    <>
+                        <h3>Bill Details</h3>
+
+                        <div className='order'>
+                            <p>Item total</p>
+                            <p>₹<span>{totalPrice}</span></p>
+                        </div>
+
+                        <div className='tax'>
+                            <p>Delivery charges</p>
+                            <p>₹<span>{tax}</span></p>
+                        </div>
+
+                        {
+                            <div className='offer'>
+                                <p>Discount</p>
+                                <p>₹<span>{ItemTotal >= 200 ? discount : 0}</span></p>
+                            </div>
+                        }
+
+                        <div className='total'>
+                            <p>Bill total</p>
+                            <p className='totalAmount'>₹<span>{finalPrice}</span></p>
+                        </div>
+
+                    </>
+                    : <h1 className='oopsCartEmpty'>Nothing To Show 😢</h1>
             }
-
-            <div className='total'>
-                <p>Bill total</p>
-                <p className='totalAmount'>₹<span>{finalPrice}</span></p>
-            </div>
-
         </div>
     )
 }
