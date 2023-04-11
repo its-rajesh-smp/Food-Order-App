@@ -6,18 +6,17 @@ import App from "./App/App";
 import { PageChangeProvider } from "./Context/PageChange/PageChangeCTX"
 import { SendDataProvier } from "./Context/SendData/SendDataCTX";
 import { UpdateTotalProvider } from "./Context/UpdateTotal/UpdateTotalCTX";
-import { GetDataFromLocalProvider } from "./Context/GetDataFromLocal/GetDataFromLocal";
+import { ApplyOfferProvider } from "./Context/ApplyOffer/ApplyOfferCTX";
+
 ReactDOM.render(
 
   <PageChangeProvider>
     <SendDataProvier>
-      <GetDataFromLocalProvider>
-
-        <UpdateTotalProvider>
+      <UpdateTotalProvider>
+        <ApplyOfferProvider>
           <App />
-        </UpdateTotalProvider>
-
-      </GetDataFromLocalProvider>
+        </ApplyOfferProvider>
+      </UpdateTotalProvider>
     </SendDataProvier>
   </PageChangeProvider>
   ,

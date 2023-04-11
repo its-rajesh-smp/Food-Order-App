@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 // Context
 const SendDataCTX = React.createContext({ getProductDetails: () => { } });
@@ -7,15 +7,12 @@ const SendDataCTX = React.createContext({ getProductDetails: () => { } });
 // Provider
 const SendDataProvier = (props) => {
 
-
-    console.log("RENDER SEND DATA CTX");
     /* -------------------------------------------------------------------------- */
     /*                          GET QUANTITY WITH PRODUCT                         */
     /* -------------------------------------------------------------------------- */
 
     const getProductDetails = (clickedProduct, quantity) => {
         let newLocalObject = { [clickedProduct.name]: { price: clickedProduct.price, quantity: quantity } }
-        // console.log(newLocalObject);
         updateToLocalStorage(newLocalObject, clickedProduct.name)
     }
 
@@ -50,8 +47,6 @@ const SendDataProvier = (props) => {
                 getLocalData[targetProduct].quantity = newLocalObject[productName].quantity
                 localStorage.setItem("LOCAL_CART_DATA", JSON.stringify(getLocalData))
             }
-
-
         }
     }
 

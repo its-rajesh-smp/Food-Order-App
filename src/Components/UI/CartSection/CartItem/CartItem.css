@@ -25,10 +25,18 @@
   border: 1px solid #e66158;
   border-radius: 5px;
   margin-bottom: 5px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.CartItem-div .CartItem-div-item-price .CartItem-div-item-quantity button {
+  background-color: white;
+  border: none;
+  font-size: 20px;
+  padding: 0px 5px;
 }
 .CartItem-div .CartItem-div-item-price .original {
-  text-decoration: line-through;
-}
-.CartItem-div .CartItem-div-item-price .discount {
-  color: green;
+  display: flex;
+  gap: 5px;
 }/*# sourceMappingURL=CartItem.css.map */

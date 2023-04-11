@@ -1,47 +1,13 @@
 import React from "react";
 import "./ProductsContainer.css";
 import Product from "../UI/ProductSection/Product/Product";
-
-
+import DATA from "../../Assets/DATA";
 
 function ProductContainer(props) {
-
-
-
-
-
-  return (
-    <div className=" ProductContainer-div ">
-
-
-      <Product
-        details={{
-          name: "Fish Curry",
-          price: 256,
-          desc: "Crispy and tender eggplant fries that are delicious to enjoy as a snack, side or",
-        }}
-      />
-
-      <Product
-
-        details={{
-          name: "Matar Curry",
-          price: 10,
-          desc: "Crispy and tender eggplant fries that are delicious to enjoy as a snack, side or",
-        }}
-      />
-
-      <Product
-        details={{
-          name: "Chicken Curry",
-          price: 11,
-          desc: "Crispy and tender eggplant fries that are delicious to enjoy as a snack, side or",
-        }}
-      />
-
-
-    </div>
-  );
+  const productArray = DATA.map((val) => {
+    return <Product details={val} key={Math.random()} />;
+  });
+  return <div className=" ProductContainer-div ">{productArray}</div>;
 }
 
 export default ProductContainer;

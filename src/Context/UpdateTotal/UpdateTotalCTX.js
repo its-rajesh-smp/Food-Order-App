@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import GetDataFromLocalCTX from "../GetDataFromLocal/GetDataFromLocal";
+import PageChangeCTX from "../PageChange/PageChangeCTX";
+
 
 // Context
 const UpdateTotalCTX = React.createContext({
@@ -55,24 +56,25 @@ const UpdateTotalProvider = (props) => {
         localStorage.setItem("TOTAL_VALUE", JSON.stringify(totalValue))
     }
 
-    //Context to update the total from local Storage
-    /**
-     * Due To UseEffect In Get Data From Local CTX
-     * that will render once so this component will render once
-     * so photobtns render once 
-     * same after render in this useEffect this component also render once
-     * so photo buttons are also render once
-     */
-    const updateTotalFromLocal = useContext(GetDataFromLocalCTX);
-    // useEffect(() => {
-    //     if (updateTotalFromLocal.localData !== "") {
-    //         const localTotal = updateTotalFromLocal.localData.localTotalData
-    //         const price = localTotal.price
-    //         const quantity = localTotal.quantity
-    //         // setTotalValues({ price: price, quantity: quantity })
-    //     }
 
-    // }, [updateTotalFromLocal.localData])
+
+    /* -------------------------------------------------------------------------- */
+    /*                     UPDATE FROM LOCAL STORAGE WHEN LOAD                    */
+    /* -------------------------------------------------------------------------- */
+
+    const reloadWhenPagechange = useContext(PageChangeCTX)
+    useEffect(() => {
+        const localData = JSON.parse(localStorage.getItem("TOTAL_VALUE"))
+        if (localData !== null) {
+            const price = localData.price
+            const quantity = localData.quantity
+            setTotalValues({ price: price, quantity: quantity })
+        }
+        else {
+            setTotalValues({ price: 0, quantity: 0 })
+        }
+
+    }, [reloadWhenPagechange.currentPage])
 
 
 

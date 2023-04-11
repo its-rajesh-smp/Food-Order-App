@@ -1,0 +1,14 @@
+.EmptyCart-div {
+  font-family: poppins;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 300px;
+}
+.EmptyCart-div img {
+  width: 200px;
+  opacity: 0.5;
+  position: absolute;
+}
