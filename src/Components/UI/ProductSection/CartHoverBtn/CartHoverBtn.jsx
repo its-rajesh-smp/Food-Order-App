@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./CartHoverBtn.css";
 // Page Change Context
 import PageChangeCTX from "../../../../Context/PageChange/PageChangeCTX";
 // Update Total Context
 import UpdateTotalCTX from "../../../../Context/UpdateTotal/UpdateTotalCTX";
+// Update Total From Local
+import GetDataFromLocalCTX from "../../../../Context/GetDataFromLocal/GetDataFromLocal";
 
 function CartHoverBtn(props) {
   // Context To Change Page
@@ -13,6 +15,7 @@ function CartHoverBtn(props) {
 
   let totalPrice = updateTotalValue.totalValues.price;
   let totalQuantity = updateTotalValue.totalValues.quantity;
+
   console.log("CART HOVER BTN RENDER");
   return (
     <>

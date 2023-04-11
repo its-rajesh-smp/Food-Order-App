@@ -6,7 +6,7 @@ import SendDataCTX from "../../../../../../Context/SendData/SendDataCTX";
 import UpdateTotalCTX from "../../../../../../Context/UpdateTotal/UpdateTotalCTX";
 
 function ProductPhotoBtn(props) {
-  console.log("RENDER PHOTO");
+  console.log("%cRENDER PHOTO", "color:yellow");
   // Context To Get Data in the SendDataCTX
   const sendData = useContext(SendDataCTX);
   const updateTotal = useContext(UpdateTotalCTX);

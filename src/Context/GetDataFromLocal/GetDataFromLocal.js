@@ -8,15 +8,22 @@ const GetDataFromLocalCTX = React.createContext();
 const GetDataFromLocalProvider = (props) => {
 
     // State To Send Data
-    const [localData, setLocalData] = useState({})
+    const [localData, setLocalData] = useState("")
+    console.log("%cDATA GET FROM LOCAL", "color:red");
 
-    useEffect(() => {
+    /* -------------------------------------------------------------------------- */
+    /*                       GET ALL DATA FROM LOCAL STORAGE                      */
+    /* -------------------------------------------------------------------------- */
 
-    }, [])
+    // useEffect(() => {
+    //     const localCartData = JSON.parse(localStorage.getItem("LOCAL_CART_DATA"))
+    //     const localTotalData = JSON.parse(localStorage.getItem("TOTAL_VALUE"))
+    //     setLocalData({ localCartData: localCartData, localTotalData: localTotalData })
+    // }, [])
 
 
     return (
-        <GetDataFromLocalCTX.Provider value={{}}>
+        <GetDataFromLocalCTX.Provider value={{ localData }}>
             {props.children}
         </GetDataFromLocalCTX.Provider>
     )
