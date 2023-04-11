@@ -1,48 +1,56 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import "./ProductPhotoBtn.css";
-import { useState } from "react";
-import AddToCartCTX from "../../../../../../Context/AddToCart/AddToCartCTX";
+
+import SendDataCTX from "../../../../../../Context/SendData/SendDataCTX";
+import UpdateTotalCTX from "../../../../../../Context/UpdateTotal/UpdateTotalCTX";
 
 function ProductPhotoBtn(props) {
-    // Context
-    const updateQuantityCTX = useContext(AddToCartCTX);
+  console.log("RENDER PHOTO");
+  // Context To Get Data in the SendDataCTX
+  const sendData = useContext(SendDataCTX);
+  const updateTotal = useContext(UpdateTotalCTX);
 
-    // State to change the Quanity value
-    const [quanity, setQuanity] = useState(0);
+  //   State To Update the Quantity on increament decreament
+  const [quantity, setQuantity] = useState(0);
 
-    console.log("RENDER");
-    /* -------------------------------------------------------------------------- */
-    /*                           function to increament                           */
-    /* -------------------------------------------------------------------------- */
-    const increament = () => {
-        setQuanity((prev) => {
-            // Send The Data When Button Is Clicked
-            updateQuantityCTX.getDataWhenBTNclick(prev + 1, props.details);
-            return prev + 1;
-        });
-    };
+  /* -------------------------------------------------------------------------- */
+  /*                                 INCREAMENT                                 */
+  /* -------------------------------------------------------------------------- */
+  const increamentQuantity = (clickedProduct) => {
+    sendData.getProductDetails(clickedProduct, "_INCREAMENT_");
+    setQuantity((prev) => prev + 1);
+    // updateTotal.sendToUpdateTotal(clickedProduct, "_INCREAMENT_");
+  };
 
-    /* -------------------------------------------------------------------------- */
-    /*                           function to decreament                           */
-    /* -------------------------------------------------------------------------- */
-    const decreament = () => {
-        if (quanity > 0) {
-            setQuanity((prev) => {
-                // Send The Data When Button Is Clicked
-                updateQuantityCTX.getDataWhenBTNclick(prev - 1, props.details);
-                return prev - 1;
-            });
-        }
-    };
+  /* -------------------------------------------------------------------------- */
+  /*                                 DECREAMENT                                 */
+  /* -------------------------------------------------------------------------- */
+  const decreamentQuantity = (clickedProduct) => {
+    sendData.getProductDetails(clickedProduct, "_DECREAMENT_");
+    setQuantity((prev) => prev - 1);
+    // updateTotal.sendToUpdateTotal(clickedProduct, "_DECREAMENT_");
+  };
 
-    return (
-        <div className="ProductPhotoSide-div-button">
-            <button onClick={decreament}>-</button>
-            <p style={{ cursor: "pointer" }}>{quanity}</p>
-            <button onClick={increament}>+</button>
-        </div>
-    );
+  return (
+    <div className="ProductPhotoSide-div-button">
+      <button
+        onClick={() => {
+          decreamentQuantity(props.details);
+        }}
+      >
+        -
+      </button>
+      <p style={{ cursor: "pointer" }}>{quantity}</p>
+      <button
+        onClick={() => {
+          increamentQuantity(props.details);
+        }}
+      >
+        +
+      </button>
+    </div>
+  );
 }
 
 export default ProductPhotoBtn;

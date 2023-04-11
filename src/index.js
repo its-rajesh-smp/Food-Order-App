@@ -2,17 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App/App";
-import { CartOpenCloseProvider } from "./Context/CartOpenClose/CartOpenCloseContext";
-import AddToCartProvider from "./Context/AddToCart/AddToCartProvider";
-
-import { OfferPromoProvider } from "./Context/OfferPromoData/OfferPromoCtx";
+// Contexts
+import { PageChangeProvider } from "./Context/PageChange/PageChangeCTX"
+import { SendDataProvier } from "./Context/SendData/SendDataCTX";
+import { UpdateTotalProvider } from "./Context/UpdateTotal/UpdateTotalCTX";
 ReactDOM.render(
-  <CartOpenCloseProvider>
-    <OfferPromoProvider>
-      <AddToCartProvider>
+
+  <PageChangeProvider>
+    <SendDataProvier>
+      <UpdateTotalProvider>
         <App />
-      </AddToCartProvider>
-    </OfferPromoProvider>
-  </CartOpenCloseProvider>,
+      </UpdateTotalProvider>
+    </SendDataProvier>
+  </PageChangeProvider>
+  ,
   document.querySelector("#root")
 );

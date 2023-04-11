@@ -1,20 +1,21 @@
 import React, { useContext } from "react";
 import "./App.css";
+// Pages
 import CartPage from "../Pages/CartPage/CartPage";
-import OrderSuccessPage from "../Pages/OrderSuccessPage/OrderSuccessPage";
 import ProductPage from "../Pages/ProductPage/ProductPage";
 
-import CartOpenCloseCTX from "../Context/CartOpenClose/CartOpenCloseContext";
+// Change Page Context
+import PageChangeCTX from "../Context/PageChange/PageChangeCTX";
 
 function App(props) {
+
   // Context To OpenClose Cart
-  const cartOpenCloseCTX = useContext(CartOpenCloseCTX);
+  const changePage = useContext(PageChangeCTX);
 
   return (
     <div className=" App-div container ">
-      {!cartOpenCloseCTX.openCartPage_BOOL && <ProductPage />}
-      {cartOpenCloseCTX.openCartPage_BOOL && <CartPage />}
-      {/* <OrderSuccessPage /> */}
+      {changePage.currentPage === 0 && <ProductPage />}
+      {changePage.currentPage === 1 && <CartPage />}
     </div>
   );
 }
