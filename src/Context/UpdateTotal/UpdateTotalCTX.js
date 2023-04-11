@@ -11,25 +11,49 @@ const UpdateTotalCTX = React.createContext({
 
 // Provider
 const UpdateTotalProvider = (props) => {
-    console.log("UPDATE CONTEXT TOTAL");
+
+    //! MAIN PROBLEM
+    //! This State Is Creating Problem just because when it update this context will render means every component
+    //! That is under its consumer will render
+
+    // State To Update The CartHoverBtn's Value
+    const [totalValues, setTotalValues] = useState({ price: 0, quantity: 0 })
 
 
-    console.log("SSs");
-
-    function liftState(callBack) {
-        callBack(55)
+    //function update the total
+    const sendToUpdateTotal = (clickedProduct, action) => {
+        if (action === "_INCREAMENT_") {
+            setTotalValues((prev) => {
+                let newPrice = prev.price + clickedProduct.price
+                let newQuantity = prev.quantity + 1
+                let newTotal = { price: newPrice, quantity: newQuantity }
+                updateToLocalStorage(newTotal)
+                return newTotal
+            })
+        }
+        if (action === "_DECREAMENT_") {
+            setTotalValues((prev) => {
+                let newPrice = prev.price - clickedProduct.price
+                let newQuantity = prev.quantity - 1
+                let newTotal = { price: newPrice, quantity: newQuantity }
+                updateToLocalStorage(newTotal)
+                return newTotal
+            })
+        }
     }
 
-    const sendToUpdateTotal = (clickedProduct) => {
-        const price = clickedProduct.price
-        const quantity = clickedProduct.quantity
 
+    // Function To Upload In LocalStorage 
+    const updateToLocalStorage = (totalValue) => {
+        localStorage.setItem("TOTAL_VALUE", JSON.stringify(totalValue))
     }
+
+
 
 
 
     return (
-        <UpdateTotalCTX.Provider value={{ liftState }}>{props.children}</UpdateTotalCTX.Provider>
+        <UpdateTotalCTX.Provider value={{ sendToUpdateTotal, totalValues, setTotalValues }}>{props.children}</UpdateTotalCTX.Provider>
     )
 }
 

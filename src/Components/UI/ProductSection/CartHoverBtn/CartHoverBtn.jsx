@@ -11,16 +11,9 @@ function CartHoverBtn(props) {
   //Context to update the total
   const updateTotalValue = useContext(UpdateTotalCTX);
 
-  function liftState(data) {
-    console.log(data);
-    console.log("HURRY");
-  }
-
-  updateTotalValue.liftState(liftState);
-
-  // let totalPrice = updateTotalValue.totalValues.price;
-  // let totalQuantity = updateTotalValue.totalValues.quantity;
-  console.log("HOVER RENDER");
+  let totalPrice = updateTotalValue.totalValues.price;
+  let totalQuantity = updateTotalValue.totalValues.quantity;
+  console.log("CART HOVER BTN RENDER");
   return (
     <>
       {
@@ -31,11 +24,11 @@ function CartHoverBtn(props) {
           <button className="CartHoverBtn-div-button">
             <div className="CartHoverBtn-div-button-CartPrice">
               <p>
-                <span>{20}</span> Item
+                <span>{totalQuantity}</span> Item
               </p>
               <p>
                 <span className="moneyType">₹</span>
-                <span className="price"> {0}</span>
+                <span className="price"> {totalPrice}</span>
                 <span className="taxes">+taxes</span>
               </p>
             </div>

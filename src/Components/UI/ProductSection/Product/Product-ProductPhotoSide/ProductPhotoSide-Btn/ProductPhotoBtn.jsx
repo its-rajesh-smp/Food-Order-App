@@ -18,18 +18,18 @@ function ProductPhotoBtn(props) {
   /*                                 INCREAMENT                                 */
   /* -------------------------------------------------------------------------- */
   const increamentQuantity = (clickedProduct) => {
-    sendData.getProductDetails(clickedProduct, "_INCREAMENT_");
+    sendData.getProductDetails(clickedProduct, quantity + 1);
     setQuantity((prev) => prev + 1);
-    // updateTotal.sendToUpdateTotal(clickedProduct, "_INCREAMENT_");
+    updateTotal.sendToUpdateTotal(clickedProduct, "_INCREAMENT_");
   };
 
   /* -------------------------------------------------------------------------- */
   /*                                 DECREAMENT                                 */
   /* -------------------------------------------------------------------------- */
   const decreamentQuantity = (clickedProduct) => {
-    sendData.getProductDetails(clickedProduct, "_DECREAMENT_");
+    sendData.getProductDetails(clickedProduct, quantity - 1);
     setQuantity((prev) => prev - 1);
-    // updateTotal.sendToUpdateTotal(clickedProduct, "_DECREAMENT_");
+    updateTotal.sendToUpdateTotal(clickedProduct, "_DECREAMENT_");
   };
 
   return (
