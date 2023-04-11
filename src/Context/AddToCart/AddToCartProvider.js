@@ -41,6 +41,7 @@ const AddToCartProvider = (props) => {
     useEffect(() => {
         const CartTotal = JSON.parse(localStorage.getItem("USER_CART_TOTAL"))
         const CartData = JSON.parse(localStorage.getItem("USER_CART_PRODUCT_DATA"))
+        console.log("RUNN");
         // If we find in local storage
         if (CartTotal !== null && CartData !== null) {
             setTotalCart(CartTotal)
