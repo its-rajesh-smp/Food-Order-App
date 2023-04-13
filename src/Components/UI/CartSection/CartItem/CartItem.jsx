@@ -19,7 +19,7 @@ function CartItem(props) {
       sendData.getProductDetails(clickedProduct, prev + 1);
       return prev + 1;
     });
-    updateTotal.sendToUpdateTotal(clickedProduct, "_INCREAMENT_");
+    updateTotal.sendToUpdateTotal(clickedProduct, "_INCREAMENT_", 1);
   };
 
   /* -------------------------------------------------------------------------- */
@@ -30,7 +30,7 @@ function CartItem(props) {
       sendData.getProductDetails(clickedProduct, prev - 1);
       return prev - 1;
     });
-    updateTotal.sendToUpdateTotal(clickedProduct, "_DECREAMENT_");
+    updateTotal.sendToUpdateTotal(clickedProduct, "_DECREAMENT_", 1);
   };
 
   return (

@@ -26,11 +26,11 @@ const UpdateTotalProvider = (props) => {
     /*                                UPDATE TOTAL                                */
     /* -------------------------------------------------------------------------- */
 
-    const sendToUpdateTotal = (clickedProduct, action) => {
+    const sendToUpdateTotal = (clickedProduct, action, incBy) => {
         if (action === "_INCREAMENT_") {
             setTotalValues((prev) => {
-                let newPrice = prev.price + clickedProduct.price
-                let newQuantity = prev.quantity + 1
+                let newPrice = prev.price + (clickedProduct.price * incBy)
+                let newQuantity = prev.quantity + incBy
                 let newTotal = { price: newPrice, quantity: newQuantity }
                 updateToLocalStorage(newTotal)
                 return newTotal
@@ -38,8 +38,8 @@ const UpdateTotalProvider = (props) => {
         }
         if (action === "_DECREAMENT_") {
             setTotalValues((prev) => {
-                let newPrice = prev.price - clickedProduct.price
-                let newQuantity = prev.quantity - 1
+                let newPrice = prev.price - (clickedProduct.price * incBy)
+                let newQuantity = prev.quantity - incBy
                 let newTotal = { price: newPrice, quantity: newQuantity }
                 updateToLocalStorage(newTotal)
                 return newTotal

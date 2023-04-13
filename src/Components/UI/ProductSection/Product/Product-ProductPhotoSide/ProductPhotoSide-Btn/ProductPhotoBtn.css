@@ -4,6 +4,10 @@
   justify-content: space-evenly;
   align-items: center;
   border-radius: 5px;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .ProductPhotoSide-div-button button {
   background-color: #e66158;
@@ -16,4 +20,20 @@
 .ProductPhotoSide-div-button p {
   padding: 5px;
   color: #ffffff;
+}
+.ProductPhotoSide-div-button .incQuantityAmt {
+  padding: 7px;
+  left: -40px;
+  color: #ffffff;
+  position: absolute;
+  width: 20px;
+  border: none;
+  background-color: #588ae6;
+  text-align: center;
+  border-radius: 5px;
+}
+.ProductPhotoSide-div-button input::-webkit-outer-spin-button,
+.ProductPhotoSide-div-button input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }/*# sourceMappingURL=ProductPhotoBtn.css.map */

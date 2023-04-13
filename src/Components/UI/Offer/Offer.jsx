@@ -10,12 +10,26 @@ function Offer(props) {
   /*                       FUNCTION TO SEND CLICKED OFFER                       */
   /* -------------------------------------------------------------------------- */
   const onClickSendOffer = (clickedOffer) => {
-    if (JSON.parse(localStorage.getItem("APPLIED_OFFER")) !== null) {
-      return;
+    if (applied !== "AppliedOffer") {
+
+      if (JSON.parse(localStorage.getItem("APPLIED_OFFER")) !== null) {
+        return;
+      }
+      sendClickdOffer.getAppliedOffer(clickedOffer);
+      setApplied("AppliedOffer");
     }
-    sendClickdOffer.getAppliedOffer(clickedOffer);
-    setApplied("AppliedOffer");
   };
+
+
+  /* -------------------------------------------------------------------------- */
+  /*                               REMOVE APPLIED                               */
+  /* -------------------------------------------------------------------------- */
+  const removeApplied = () => {
+    console.log("WW");
+    localStorage.removeItem("APPLIED_OFFER")
+    setApplied("");
+  }
+
 
   /* -------------------------------------------------------------------------- */
   /*                              GET APPLIED OFFER                             */
@@ -36,7 +50,7 @@ function Offer(props) {
       }}
       className={`Offer-div ${applied}`}
     >
-      <p className="promo">{props.offerName}</p>
+      <p className="promo">{props.offerName} {applied === "AppliedOffer" ? <span><i onClick={removeApplied} style={{ color: "red" }} className='bx bxs-message-square-x'></i></span> : ""}</p>
       <p>
         Promo Code: <span>{props.offerCode}</span>
       </p>

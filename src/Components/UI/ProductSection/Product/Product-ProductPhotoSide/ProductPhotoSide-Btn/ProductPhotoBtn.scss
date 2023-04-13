@@ -4,6 +4,8 @@
   justify-content: space-evenly;
   align-items: center;
   border-radius: 5px;
+  position: relative;
+  user-select: none;
   button {
     background-color: #e66158;
     border: none;
@@ -15,5 +17,21 @@
   p {
     padding: 5px;
     color: #ffffff;
+  }
+  .incQuantityAmt {
+    padding: 7px;
+    left: -40px;
+    color: #ffffff;
+    position: absolute;
+    width: 20px;
+    border: none;
+    background-color: #588ae6;
+    text-align: center;
+    border-radius: 5px;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
