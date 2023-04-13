@@ -1,51 +1,22 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 
 import "./ProductPhotoBtn.css";
 
-import SendDataCTX from "../../../../../../Context/SendData/SendDataCTX";
-import UpdateTotalCTX from "../../../../../../Context/UpdateTotal/UpdateTotalCTX";
+
 
 function ProductPhotoBtn(props) {
-  console.log("RENDER PHOTO");
-  // Context To Get Data in the SendDataCTX
-  const sendData = useContext(SendDataCTX);
-  const updateTotal = useContext(UpdateTotalCTX);
 
-  //   State To Update the Quantity on increament decreament
-  const [quantity, setQuantity] = useState(0);
-
-  /* -------------------------------------------------------------------------- */
-  /*                                 INCREAMENT                                 */
-  /* -------------------------------------------------------------------------- */
-  const increamentQuantity = (clickedProduct) => {
-    sendData.getProductDetails(clickedProduct, "_INCREAMENT_");
-    setQuantity((prev) => prev + 1);
-    // updateTotal.sendToUpdateTotal(clickedProduct, "_INCREAMENT_");
-  };
-
-  /* -------------------------------------------------------------------------- */
-  /*                                 DECREAMENT                                 */
-  /* -------------------------------------------------------------------------- */
-  const decreamentQuantity = (clickedProduct) => {
-    sendData.getProductDetails(clickedProduct, "_DECREAMENT_");
-    setQuantity((prev) => prev - 1);
-    // updateTotal.sendToUpdateTotal(clickedProduct, "_DECREAMENT_");
-  };
 
   return (
     <div className="ProductPhotoSide-div-button">
       <button
-        onClick={() => {
-          decreamentQuantity(props.details);
-        }}
+
       >
         -
       </button>
-      <p style={{ cursor: "pointer" }}>{quantity}</p>
+      <p style={{ cursor: "pointer" }}>0</p>
       <button
-        onClick={() => {
-          increamentQuantity(props.details);
-        }}
+
       >
         +
       </button>
