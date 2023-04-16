@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "catagorieName": "Fish",
+      "items": [
+        {
+          "id": 1,
+          "name": "Fish Curry",
+          "price": 250,
+          "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, voluptates.",
+          "type": "NonVeg",
+          "img": "https://c.ndtvimg.com/2021-02/gsq3frgg_fish-fry_625x300_10_February_21.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=886"
+        },
+        {
+          "id": 2,
+          "name": "Fish Kopta",
+          "price": 250,
+          "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, voluptates.",
+          "type": "NonVeg",
+          "img": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/5/4/1/FNM_060112-Duff-Goldman-Spanish-Style-Grilled-Fish-recipe_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371606208411.jpeg"
+        },
+        {
+          "id": 3,
+          "name": "Fish Malai",
+          "price": 250,
+          "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, voluptates.",
+          "type": "NonVeg",
+          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz4noa30x_ky5k1VxFHByITZxu62k8Dp6-Ig&usqp=CAU"
+        }
+      ]
+    },
+    {
+      "catagorieName": "Chicken",
+      "items": [
+        {
+          "id": 4,
+          "name": "Chicken Fry",
+          "price": 250,
+          "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, voluptates.",
+          "type": "NonVeg",
+          "img": "https://www.licious.in/blog/wp-content/uploads/2022/03/shutterstock_1903754356-min-600x600.jpg"
+        },
+        {
+          "id": 5,
+          "name": "Chicken Butter",
+          "price": 250,
+          "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, voluptates.",
+          "type": "NonVeg",
+          "img": "https://www.licious.in/blog/wp-content/uploads/2020/12/Spatchcock-Chicken-min.jpg"
+        },
+        {
+          "id": 6,
+          "name": "Chicken Laddu",
+          "price": 250,
+          "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, voluptates.",
+          "type": "NonVeg",
+          "img": "https://www.foodandwine.com/thmb/jJupeS5vHMkh9TBsJkwdaG1uPY8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Tamarind-Chicken-FT-RECIPE0522-80072d93f7bc4bc7abf1dcf5b5317b0c.jpg"
+        }
+      ]
+    }
+  ],
+  "cartItems": [
+    {
+      "name": "Fish Malai",
+      "id": 3,
+      "price": 250,
+      "quantity": 1
+    }
+  ],
+  "cartTotal": {
+    "totalPrice": 250,
+    "totalQuantity": 1
+  }
+}

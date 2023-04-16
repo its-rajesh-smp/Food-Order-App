@@ -7,11 +7,10 @@ import OffersContainer from "../../Components/LandingPage-OffersContainer/Offers
 import Search from "../../Components/UI/ProductSection/Search/Search"
 import VegNonVegFilter from "../../Components/UI/ProductSection/VegNonVegFilter/VegNonVegFilter"
 import FaviouritesContainer from "../../Components/LandingPage-FaviouritesContainer/FaviouritesContainer"
-
-import ProductsContainer from "../../Components/LandingPage-ProductContainer/ProductsContainer"
-
-
 import CartHoverBtn from '../../Components/UI/ProductSection/CartHoverBtn/CartHoverBtn';
+import CatagorieContainer from '../../Components/LandingPage-CatagorieContainer/CatagorieContainer';
+
+
 
 function ProductPage(props) {
 
@@ -24,8 +23,7 @@ function ProductPage(props) {
             <Search />
             <VegNonVegFilter />
             <FaviouritesContainer />
-            <ProductsContainer />
-
+            <CatagorieContainer />
             <CartHoverBtn />
 
 

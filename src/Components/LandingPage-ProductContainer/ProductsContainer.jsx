@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ProductsContainer.css";
 import Product from "../UI/ProductSection/Product/Product";
 
@@ -9,35 +9,31 @@ function ProductContainer(props) {
 
 
 
-
   return (
     <div className=" ProductContainer-div ">
 
+      <h1>{props.catagorieName}</h1>
 
-      <Product
-        details={{
-          name: "Fish Curry",
-          price: 256,
-          desc: "Crispy and tender eggplant fries that are delicious to enjoy as a snack, side or",
-        }}
-      />
+      {
+        props.products.map((val) => {
+          return <Product
+            key={val.id}
+            details={{
+              name: val.name,
+              price: val.price,
+              desc: val.desc,
+              id: val.id,
+              img: val.img,
+              type: val.type,
+              quantity: props.cartDataObj[val.name] !== undefined ? props.cartDataObj[val.name] : 0
+            }}
+          />
+        })
+      }
 
-      <Product
 
-        details={{
-          name: "Matar Curry",
-          price: 10,
-          desc: "Crispy and tender eggplant fries that are delicious to enjoy as a snack, side or",
-        }}
-      />
 
-      <Product
-        details={{
-          name: "Chicken Curry",
-          price: 11,
-          desc: "Crispy and tender eggplant fries that are delicious to enjoy as a snack, side or",
-        }}
-      />
+
 
 
     </div>

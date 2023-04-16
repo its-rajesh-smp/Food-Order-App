@@ -1,14 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./CartHoverBtn.css";
-// Page Change Context
-import PageChangeCTX from "../../../../Context/PageChange/PageChangeCTX";
+import PageChangeCTX from "../../../../Context/PageChange/PageChangeCTX"; // Page Change Context
+import { useDispatch, useSelector } from "react-redux";
+import { showCartTotalFromServerACT } from "../../../../Actions/cartTotalActions";
 
 
 function CartHoverBtn(props) {
   // Context To Change Page
   const changePageToCart = useContext(PageChangeCTX);
 
+  console.log("CART HOVER BTN RENDER");
+
+  const myState = useSelector(state => state.cartTotalReducer.cartTotal)
+  const dispatch = useDispatch()
+
+
+  useEffect(() => {
+    dispatch(showCartTotalFromServerACT())
+  }, [])
+
+
+
+
+
   return (
+    myState.totalQuantity !== 0 &&
     <>
       {
         <div
@@ -18,11 +34,11 @@ function CartHoverBtn(props) {
           <button className="CartHoverBtn-div-button">
             <div className="CartHoverBtn-div-button-CartPrice">
               <p>
-                <span>{0}</span> Item
+                <span>{myState.totalQuantity}</span> Item
               </p>
               <p>
                 <span className="moneyType">₹</span>
-                <span className="price"> {0}</span>
+                <span className="price"> {myState.totalPrice}</span>
                 <span className="taxes">+taxes</span>
               </p>
             </div>
@@ -38,4 +54,4 @@ function CartHoverBtn(props) {
   );
 }
 
-export default CartHoverBtn;
+export default React.memo(CartHoverBtn);

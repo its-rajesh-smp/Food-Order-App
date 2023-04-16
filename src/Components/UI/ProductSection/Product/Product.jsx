@@ -4,6 +4,8 @@ import ProductDetailsSide from "./Product-ProductDetailsSide/ProductDetailsSide"
 import ProductPhotoSide from "./Product-ProductPhotoSide/ProductPhotoSide";
 
 function Product(props) {
+
+
   return (
     <div className=" Product-div ">
       <ProductDetailsSide details={props.details} />

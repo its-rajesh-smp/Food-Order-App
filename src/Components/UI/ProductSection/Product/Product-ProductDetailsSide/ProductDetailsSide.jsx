@@ -5,7 +5,7 @@ function ProductDetailsSide(props) {
     return (
         <div className="ProductDetailsSide-div">
             <div className="productName">
-                <i className="bx bx-checkbox-square"></i>
+                <i style={props.details.type === "NonVeg" ? { color: "red" } : { color: "green" }} className="bx bx-checkbox-square"></i>
                 <p>{props.details.name}</p>
             </div>
 
