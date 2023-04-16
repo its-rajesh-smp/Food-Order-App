@@ -6,7 +6,6 @@ export const increamentTotal = (data) => {
 const decreamentTotal = (data) => {
     return { type: "DECREAMENT_TOTAL", payload: data }
 }
-
 const showCartTotal = (data) => {
     return { type: "SHOW_CART_TOTAL", payload: data }
 }
@@ -65,3 +64,4 @@ export const decreamentTotalInServerACT = (productData) => {
         }
     }
 }
+

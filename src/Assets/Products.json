@@ -59,16 +59,58 @@
       ]
     }
   ],
+  "userOffers": [
+    {
+      "name": "Flat 50",
+      "id": 100,
+      "offerCode": "flat50",
+      "discount": 50,
+      "type": "discount"
+    },
+    {
+      "name": "Sharpener 100",
+      "id": 101,
+      "offerCode": "sharpener100",
+      "discount": 100,
+      "type": "discount"
+    },
+    {
+      "name": "Free Delivery",
+      "id": 102,
+      "offerCode": "",
+      "discount": 0,
+      "type": "delivery"
+    }
+  ],
   "cartItems": [
     {
       "name": "Fish Malai",
       "id": 3,
       "price": 250,
       "quantity": 1
+    },
+    {
+      "name": "Chicken Fry",
+      "id": 4,
+      "price": 250,
+      "quantity": 1
+    },
+    {
+      "name": "Fish Curry",
+      "id": 1,
+      "price": 250,
+      "quantity": 1
+    },
+    {
+      "name": "Fish Kopta",
+      "id": 2,
+      "price": 250,
+      "quantity": 2
     }
   ],
   "cartTotal": {
-    "totalPrice": 250,
-    "totalQuantity": 1
-  }
+    "totalPrice": 1250,
+    "totalQuantity": 5
+  },
+  "appliedOffers": []
 }

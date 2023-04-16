@@ -5,7 +5,6 @@ import axios from "axios"
 export const showData = (response) => {
     return { type: "SHOW_PRODUCTS", payload: response }
 }
-
 const addOnCart = (data) => {
     return { type: "ADD_ON_CART", payload: data }
 }
