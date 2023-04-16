@@ -1,13 +1,18 @@
 import React from 'react';
 import "./BillDetails.css"
+import { useSelector } from 'react-redux';
 
 function BillDetails() {
 
-    const totalCTX = 0
-    const totalPrice = 0
+    console.log("%cBILL DETAILS RENDER", "color:green");
+
+    const myCartTotal = useSelector(state => state.cartTotalReducer.cartTotal)
+
+
+    const totalPrice = myCartTotal.totalPrice
     const discount = 0
     const tax = 0
-    const finalPrice = 0
+    const finalPrice = (totalPrice - discount) + tax
 
 
     return (

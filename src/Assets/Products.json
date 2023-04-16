@@ -87,5 +87,20 @@
     "totalPrice": 0,
     "totalQuantity": 0
   },
-  "appliedOffers": []
+  "appliedOffers": [
+    {
+      "offerName": "Sharpener 100",
+      "id": 101,
+      "offerCode": "sharpener100",
+      "discount": 100,
+      "type": "discount"
+    },
+    {
+      "offerName": "Free Delivery",
+      "id": 102,
+      "offerCode": "",
+      "discount": 0,
+      "type": "delivery"
+    }
+  ]
 }

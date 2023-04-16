@@ -8,11 +8,16 @@ const applyOffer = (data) => {
 }
 
 
-
+// Show offers from server after component mount
 export const showOffersFromServer = () => {
     return async (dispatch, setState) => {
-        const { data } = await axios.get("http://localhost:3000/userOffers")
-        dispatch(showOffers(data))
+        const userOffersResponse = await axios.get("http://localhost:3000/userOffers")
+        const appliedOfferResponse = await axios.get("http://localhost:3000/appliedOffers")
+        const newDataObj = {
+            userOffers: userOffersResponse.data,
+            appliedOffer: appliedOfferResponse.data
+        }
+        dispatch(showOffers(newDataObj))
     }
 }
 
@@ -23,7 +28,26 @@ export const showOffersFromServer = () => {
 export const applyOfferInServerACT = (clickedOffer) => {
     return async (dispatch, getState) => {
         try {
-            const { data } = await axios.post("http://localhost:3000/cartTotal")
+            const currentAppliedoffer = getState().offerReducer.appliedOffer
+
+
+            let isApplied = false
+            currentAppliedoffer.forEach(val => {
+                if (val.type === clickedOffer.type) {
+                    isApplied = true
+                    return
+                }
+            });
+
+            if (isApplied === false) {
+                const { data } = await axios.post("http://localhost:3000/appliedOffers", clickedOffer)
+                dispatch(applyOffer(data))
+                return "SUCCESS"
+            }
+            else {
+                return "NOT_SUCCESS"
+            }
+
         } catch (e) {
             console.log(e);
         }

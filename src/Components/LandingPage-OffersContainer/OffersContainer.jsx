@@ -10,12 +10,22 @@ function OffersContainer(props) {
     console.log("%cOFFER CONTAINER RENDER", "color:blue");
 
     const dispatch = useDispatch()
-    const myOffersList = useSelector(state => state.offerReducer.userOffers)
+    const myOffers = useSelector(state => state.offerReducer)
 
 
     useEffect(() => {
         dispatch(showOffersFromServer())
     }, [])
+
+
+    // create a object of applied offer to check in O|1| time
+    const appliedOfferObj = {}
+
+    myOffers.appliedOffer.forEach((val) => {
+        appliedOfferObj[val.offerName] = val
+    })
+
+
 
 
 
@@ -28,7 +38,7 @@ function OffersContainer(props) {
 
             <div className="my-offers-div">
                 {
-                    myOffersList.map((val) => {
+                    myOffers.userOffers.map((val) => {
                         return <Offer key={val.id} details={{
                             offerName: val.name,
                             id: val.id,
@@ -36,7 +46,9 @@ function OffersContainer(props) {
                             discount: val.discount,
                             type: val.type
 
-                        }} />
+                        }}
+                            appliedOfferObj={appliedOfferObj}
+                        />
                     })
 
                 }
