@@ -1,0 +1,25 @@
+.CartItemBtn-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.CartItemBtn-div_btn {
+  font-size: 16px;
+  background-color: rosybrown;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: poppins;
+}
+.CartItemBtn-div_btn p {
+  padding: 3px 8px;
+}
+.CartItemBtn-div_btn p:nth-child(2) {
+  font-weight: 600;
+}
+.CartItemBtn_div_quantity,
+.CartItemBtn_div_price {
+  font-size: 12px;
+}

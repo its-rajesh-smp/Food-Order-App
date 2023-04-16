@@ -82,35 +82,10 @@
       "type": "delivery"
     }
   ],
-  "cartItems": [
-    {
-      "name": "Fish Malai",
-      "id": 3,
-      "price": 250,
-      "quantity": 1
-    },
-    {
-      "name": "Chicken Fry",
-      "id": 4,
-      "price": 250,
-      "quantity": 1
-    },
-    {
-      "name": "Fish Curry",
-      "id": 1,
-      "price": 250,
-      "quantity": 1
-    },
-    {
-      "name": "Fish Kopta",
-      "id": 2,
-      "price": 250,
-      "quantity": 2
-    }
-  ],
+  "cartItems": [],
   "cartTotal": {
-    "totalPrice": 1250,
-    "totalQuantity": 5
+    "totalPrice": 0,
+    "totalQuantity": 0
   },
   "appliedOffers": []
 }
