@@ -6,12 +6,12 @@ import CartProductsContainer from "../../Components/CartSection-CartProductsCont
 import CartOffersAndCoupons from "../../Components/UI/CartSection/CartSection-OffersAndCoupons/CartOffersAndCoupons";
 import BillDetails from "../../Components/UI/CartSection/CartSection-BillDetails/BillDetails";
 import PlaceOrderBtn from "../../Components/UI/CartSection/CarSection-PlaceOrderButton/PlaceOrderBtn";
-import SecondaryHeader from "../../Components/UI/CartSection/CartSection-SecondaryHeader/SecondaryHeader";
+import SecondaryHeader from "../../Components/UI/SecondaryHeader/SecondaryHeader";
 
 function CartPage(props) {
   return (
     <div className=" CartPage-div ">
-      <SecondaryHeader />
+      <SecondaryHeader onClick={"goToProductPage"} icon={<i className="bx bx-cart-alt"></i>} name={"Cart"} />
       <DelivaryAddress />
       <CartProductsContainer />
       <CartOffersAndCoupons />

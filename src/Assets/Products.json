@@ -87,12 +87,12 @@
       "name": "Fish Curry",
       "id": 1,
       "price": 250,
-      "quantity": 1
+      "quantity": 2
     }
   ],
   "cartTotal": {
-    "totalPrice": 250,
-    "totalQuantity": 1
+    "totalPrice": 500,
+    "totalQuantity": 2
   },
   "appliedOffers": [
     {

@@ -13,8 +13,7 @@
   display: flex;
   align-items: center;
 }
-.SecondaryHeader-div .bx-x,
-.SecondaryHeader-div .bx-cart-alt {
+.SecondaryHeader-div i {
   font-size: 40px;
   cursor: pointer;
 }/*# sourceMappingURL=SecondaryHeader.css.map */

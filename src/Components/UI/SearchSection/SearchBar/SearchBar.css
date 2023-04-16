@@ -1,0 +1,24 @@
+.SearchBar-div {
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 3px;
+}
+.SearchBar-div input {
+  border: none;
+  height: 40px;
+  outline: none;
+  padding: 0px 5px;
+}
+.SearchBar-div i {
+  cursor: pointer;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=SearchBar.css.map */

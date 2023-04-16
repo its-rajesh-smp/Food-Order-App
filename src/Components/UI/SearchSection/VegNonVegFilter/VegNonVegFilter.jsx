@@ -1,6 +1,6 @@
 import React from 'react';
 import "./VegNonVegFilter.css"
-import FlipFlopSwitch from "../FlipFlopSwitch/FlipFlopSwitch"
+import FlipFlopSwitch from "../../FlipFlopSwitch/FlipFlopSwitch"
 
 
 function VegNonVegFilter(props) {

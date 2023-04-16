@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const PageChangeCTX = React.createContext({
   goToProductPage: () => { },
   goToCartPage: () => { },
+  goToSearchPage: () => { },
   currentPage: 0
 })
 
@@ -22,8 +23,12 @@ const PageChangeProvider = (props) => {
     setCurrentPage(1)
   }
 
+  const goToSearchPage = () => {
+    setCurrentPage(2)
+  }
+
   return (
-    <PageChangeCTX.Provider value={{ currentPage, goToCartPage, goToProductPage }}>
+    <PageChangeCTX.Provider value={{ currentPage, goToCartPage, goToProductPage, goToSearchPage }}>
       {props.children}
     </PageChangeCTX.Provider>
   )
