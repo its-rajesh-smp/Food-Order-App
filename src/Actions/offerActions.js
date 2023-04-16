@@ -6,6 +6,9 @@ const showOffers = (offerList) => {
 const applyOffer = (data) => {
     return { type: "APPLY_OFFER", payload: data }
 }
+const removeAppliedOffer = (data) => {
+    return { type: "REMOVE_APPLIED_OFFER", payload: data }
+}
 
 
 // Show offers from server after component mount
@@ -30,7 +33,6 @@ export const applyOfferInServerACT = (clickedOffer) => {
         try {
             const currentAppliedoffer = getState().offerReducer.appliedOffer
 
-
             let isApplied = false
             currentAppliedoffer.forEach(val => {
                 if (val.type === clickedOffer.type) {
@@ -47,6 +49,20 @@ export const applyOfferInServerACT = (clickedOffer) => {
             else {
                 return "NOT_SUCCESS"
             }
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+}
+
+// Remove Applied Offer
+export const removeApplyOfferInServerACT = (clickedOffer) => {
+    return async (dispatch, getState) => {
+        try {
+            const { data } = await axios.delete("http://localhost:3000/appliedOffers/" + clickedOffer.id)
+            dispatch(removeAppliedOffer(clickedOffer))
+            return "SUCCESS"
 
         } catch (e) {
             console.log(e);

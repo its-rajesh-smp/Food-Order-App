@@ -2,7 +2,6 @@
   box-sizing: border-box;
   padding: 10px;
   height: 70px;
-  width: 150px;
   background-color: #ffffff;
   border: 1px dashed black;
   cursor: pointer;
@@ -20,6 +19,14 @@
   font-weight: 600;
 }
 
+.offerCode {
+  font-weight: 600;
+}
+
 .AppliedOffer {
   background-color: aquamarine;
+}
+
+.removeApplied {
+  color: red;
 }/*# sourceMappingURL=Offer.css.map */
