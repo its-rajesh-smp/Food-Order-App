@@ -12,6 +12,8 @@ function SearchPage(props) {
     const productsDataArray = []
 
     const cartDataObj = {}
+
+
     productsData.cartList.forEach((val) => {
         cartDataObj[val.name] = val.quantity
     })

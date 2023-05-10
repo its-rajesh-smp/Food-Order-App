@@ -8,13 +8,16 @@ function SearchProductsContainer(props) {
 
     const filterDataCTX = useContext(SearchFilterCTX)
     const filterValue = filterDataCTX.filterData
+    const filterVegNonVeg = filterDataCTX.vegNonVeg
+    console.log(filterVegNonVeg);
 
     // Filter By Search
     const newFilterdData = props.productsDataArray.filter((val) => {
-        if (val.name.trim().toLowerCase().includes(filterValue.trim().toLowerCase())) {
+        if ((val.name.toLowerCase().includes(filterValue.toLowerCase()) || filterValue === "") && (val.type === filterVegNonVeg || filterVegNonVeg === "All")) {
             return val
         }
     })
+    // console.log(newFilterdData);
 
 
     return (

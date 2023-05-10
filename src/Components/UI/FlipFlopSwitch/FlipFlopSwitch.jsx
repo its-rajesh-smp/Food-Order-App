@@ -1,14 +1,22 @@
 import React from "react";
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 import "./FlipFlopSwitch.css"
 
 function FlipFlopSwitch(props) {
+
+
+
+
     return (
         <div className=' FlipFlopSwitch-div '>
 
-            <FormControlLabel control={<Switch />} label="Veg" />
-            <FormControlLabel control={<Switch />} label="Non-Veg" />
+            <label htmlFor="VegNonVeg">All</label>
+            < input name="VegNonVegSelect" type="radio" value="All" onClick={(e) => { props.onVegNonVegBtnClick(e.target.value) }} />
+
+            <label htmlFor="VegNonVeg">Veg</label>
+            < input name="VegNonVegSelect" type="radio" value="Veg" onClick={(e) => { props.onVegNonVegBtnClick(e.target.value) }} />
+
+            <label htmlFor="VegNonVeg">NonVeg</label>
+            < input name="VegNonVegSelect" type="radio" value="NonVeg" onClick={(e) => { props.onVegNonVegBtnClick(e.target.value) }} />
 
 
         </div>
